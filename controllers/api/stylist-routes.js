@@ -3,7 +3,9 @@ const { Stylist } = require('../../models');
 
 //get api/stylists
 router.get('/', (req, res) => {
-    Stylist.findAll()
+    Stylist.findAll({
+        attributes: {exclude: ['password']}
+    })
         .then(dbStylistData => res.json(dbStylistData))
         .catch(err => {
             console.log(err);
@@ -14,6 +16,7 @@ router.get('/', (req, res) => {
 //get api/stylists/1
 router.get('/:id', (req, res) => {
     Stylist.findOne({
+        attributes: {exclude: ['password']},
         where: {
             id: req.params.id
         }
