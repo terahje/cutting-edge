@@ -1,4 +1,4 @@
-const {Model, DataTypes} = require('sequelize');
+const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
 class Stylist extends Model {}
@@ -24,7 +24,7 @@ Stylist.init(
            type: DataTypes.STRING,
            allowNull: false
        },
-       username: {
+        username: {
            type: DataTypes.STRING,
            allowNull: false
        },
