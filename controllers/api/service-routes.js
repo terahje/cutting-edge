@@ -1,9 +1,23 @@
 const router = require('express').Router();
-const { Service } = require('../../models');
+const { Service, Stylist, Customer } = require('../../models');
 
 //get api/service
 router.get('/', (req, res) => {
-    Service.findAll()
+    Service.findAll({
+        attributes: ['id', 'style', 'description', 'stylist_id', 'price', 'customer_id', 'stylist_id'],
+        include: [
+            {
+                model: Stylist,
+                attributes: ['salon_name']
+            }
+        ], 
+        include: [
+            {
+                model: Customer,
+                attributes: ['username']
+            }
+        ]
+    })
         .then(dbStylistData => res.json(dbStylistData))
         .catch(err => {
             console.log(err);
@@ -38,6 +52,7 @@ router.post('/', (req, res) => {
         description: req.body.description,
         style_image: req.body.style_image,
         price: req.body.price,
+        customer_id: req.body.customer_id,
         stylist_id: req.body.stylist_id
     })
     .then(dbStylistData => res.json(dbStylistData))
