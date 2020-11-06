@@ -55,7 +55,7 @@ Stylist.init(
                 newStylistData.password = await bcrypt.hash(newStylistData.password, 10);
                 return newStylistData;
            },
-           async beforeUpdate(updatedStylistData) {
+            async beforeUpdate(updatedStylistData) {
                updatedStylistData.password = await bcrypt.hash(updatedStylistData.password, 10);
                return updatedStylistData;
            }
