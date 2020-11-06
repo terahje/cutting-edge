@@ -1,7 +1,12 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
+const bcrypt = require('bcrypt');
 
-class Stylist extends Model {}
+class Stylist extends Model {
+    checkPassword(loginPw) {
+        return bcrypt.compareSync(loginPw, this.password);
+    }
+}
 
 Stylist.init(
     {
@@ -45,6 +50,16 @@ Stylist.init(
         }
     },
     {
+        hooks: {
+            async beforeCreate(newStylistData) {
+                newStylistData.password = await bcrypt.hash(newStylistData.password, 10);
+                return newStylistData;
+           },
+           async beforeUpdate(updatedStylistData) {
+               updatedStylistData.password = await bcrypt.hash(updatedStylistData.password, 10);
+               return updatedStylistData;
+           }
+        },
         //table configuration
         sequelize,
         timestamps: false,

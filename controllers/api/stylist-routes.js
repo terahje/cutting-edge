@@ -51,9 +51,34 @@ router.post('/', (req, res) => {
     });
 });
 
+//login route
+//http://localhost:3001/api/stylists/login
+router.post('/login', (req, res) => {
+    // expects {email: 'lernantino@gmail.com', password: 'password1234'}
+    Stylist.findOne({
+      where: {
+        email: req.body.email
+      }
+    }).then(dbStylistData => {
+      if (!dbStylistData) {
+        res.status(400).json({ message: 'No stylist with that email address!' });
+        return;
+      }
+  
+      const validPassword = dbStylistData.checkPassword(req.body.password);
+      if (!validPassword) {
+        res.status(400).json({ message: 'Incorrect password!' });
+        return;
+      }
+  
+      res.json({ stylist: dbStylistData, message: 'You are now logged in!' });
+    });
+  });
+
 //put api/stylists/i
 router.put('/:id', (req, res) => {
     Stylist.update(req.body, {
+        individualHooks: true,
         where: {
             id: req.params.id
         }
