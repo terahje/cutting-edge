@@ -4,7 +4,7 @@
   "description": "An appointment scheduler for a hair salon",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "start": "node server.js"
   },
   "repository": {
@@ -29,6 +29,7 @@
     "material-design-kit": "^2.2.1",
     "mysql2": "^2.2.5",
     "nodemon": "^2.0.6",
-    "sequelize": "^6.3.5"
+    "sequelize": "^6.3.5",
+    "sqlite3": "^5.0.0"
   }
 }
