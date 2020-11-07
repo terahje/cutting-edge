@@ -70,7 +70,7 @@ Customer.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'customer'
+    modelName: 'Customer'
   }
 );
 

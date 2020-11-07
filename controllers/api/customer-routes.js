@@ -1,19 +1,38 @@
 const router = require("express").Router();
 const { Customer } = require("../../models");
+const withAuth = require("../../utils/auth");
+
+//get api/appointment
+router.get('/', (req, res) => {
+    Customer.findAll({
+        Customer: {exclude: ['password']}
+    })
+        .then(dbCustomerData => res.json(dbCustomerData))
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
+});
 
 router.post("/", (req, res) => {
     Customer.create({
-    username: req.body.username,
-    password: req.body.password
+        first_name: req.body.first_name,
+        last_name: req.body.last_name,
+        email: req.body.email,
+        username: req.body.username,
+        password: req.body.password,
+        phone: req.body.phone
   })
+  
   .then(dbCustomerData => {
-    req.session.save(() => {
-      req.session.customerId = dbCustomerData.id;
-      req.session.username = dbCustomerData.username;
-      req.session.loggedIn = true;
+    //req.session.save(() => {
+      //req.session.customerId = dbCustomerData.id;
+      //req.session.username = dbCustomerData.username;
+      //req.session.loggedIn = true;
+      console.log("hello")
 
-      res.json(dbCustomerData);
-    });
+     res.json(dbCustomerData);
+  //  });
   })
   .catch(err => {
     console.log(err);
