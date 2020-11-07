@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Stylist, Service } = require('../../models');
+const { Stylist, Service, Appointment } = require('../../models');
 
 //get api/stylists
 router.get('/', (req, res) => {
@@ -24,11 +24,11 @@ router.get('/:id', (req, res) => {
             {
                 model: Service,
                 attributes: ['id', 'style', 'customer_id', 'stylist_id', 'style_image', 'price', 'time_alloted']
+            },
+            {
+                model: Appointment,
+                attributes: ['id', 'customer_id', 'appointment_date', 'appointment_time', 'stylist_id']
             }
-            // {
-            //     model: Appointment,
-            //     attributes: ['id', 'user_id', 'appointment_date', 'appointment_time', 'stylist_id']
-            // }
         ]
     })
     .then(dbStylistData => {
