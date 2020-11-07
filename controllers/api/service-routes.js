@@ -4,7 +4,7 @@ const { Service, Stylist, Customer } = require('../../models');
 //get api/service
 router.get('/', (req, res) => {
     Service.findAll({
-        attributes: ['id', 'style', 'description', 'stylist_id', 'price', 'customer_id', 'stylist_id'],
+        attributes: ['id', 'style', 'description', 'stylist_id', 'price', 'time_alloted','customer_id', 'stylist_id'],
         include: [
             {
                 model: Stylist,
@@ -52,6 +52,7 @@ router.post('/', (req, res) => {
         description: req.body.description,
         style_image: req.body.style_image,
         price: req.body.price,
+        time_alloted: req.body.time_alloted,
         customer_id: req.body.customer_id,
         stylist_id: req.body.stylist_id
     })

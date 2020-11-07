@@ -28,6 +28,10 @@ Service.init(
            type: DataTypes.DECIMAL,
            allowNull: false
        },
+        time_alloted: {
+            type: DataTypes.TIME,
+
+       },
         customer_id: {
             type: DataTypes.INTEGER,
             references: {

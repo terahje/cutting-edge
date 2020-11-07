@@ -24,9 +24,14 @@ Service.hasMany(Customer,  {
     foreignKey: 'stylist_id'
 });
 
-Stylist.hasMany(Appointment, {
-    foreignKey: 'stylist_id'
-});
+// Stylist.hasMany(Appointment, {
+//     foreignKey: 'stylist_id'
+// });
+
+// Customer.hasOne(Appointment, {
+//     foreignKey: 'customer_id'
+// });
+
 
 module.exports = {
     Customer,
