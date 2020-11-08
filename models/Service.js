@@ -12,6 +12,10 @@ Service.init(
             primaryKey: true,
             autoIncrement: true
         }, 
+        category: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
         style: {
             type: DataTypes.STRING,
             allowNull: false
