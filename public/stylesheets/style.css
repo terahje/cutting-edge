@@ -1,0 +1,23 @@
+/*color palatte */
+:root {
+    --purple: #540D6E;
+    --hotpink: #EE4266;
+    --yellow: #FFD23F;
+    --lightgreen: #3BCEAC;
+    --green: #0EAD69;
+    --dark: #071108;
+    --light: #ffff ;
+    --gray: #6f7d8c;
+    --lightgray: #AFB7C0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+    background-color: var(--purple);
+    color: var(--light);
+}
