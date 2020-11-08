@@ -51,7 +51,6 @@ router.post('/', (req, res) => {
         category: req.body.category,
         style: req.body.style,
         description: req.body.description,
-        style_image: req.body.style_image,
         price: req.body.price,
         time_alloted: req.body.time_alloted,
         customer_id: req.body.customer_id,

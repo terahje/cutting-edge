@@ -16,7 +16,7 @@ Stylist.hasMany(Customer, {
     foreignKey: 'stylist_id'
 });
 
-Customer.hasOne(Service, {
+Customer.hasMany(Service, {
     foreignKey: 'customer_id'
 });
 

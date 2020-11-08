@@ -1,30 +1,35 @@
 <div class="row">
     <div class="col-12 mt-3">
-        <h2 class="page-title">Choose Your Style! Book Your Appointment!</h2>         
+        <h2 class="page-title">Choose Service to Edit</h2>         
         <div class="card-deck">
          
             <div class="card">
-                {{#each services}}
+                {{!-- {{#each services}} --}}
                 <div class="row border border-light">
                     <div class="col-3 d-flex justify-content-center align-middle">
                         <figure class="figure">
                             <img class="img-thumbnail " style="max-width:100px; max-height:100px" src="/images/{{category}}.jpg">       
                         <figcaption class="figure-caption">
-                            Category: {{category}}
+                            Category: 
+                            {{!-- {{category}} --}}
                         </figcaption>
                         </figure>
                       </div>  
                     <div class="col-7">
                         <div class="card-header">
-                            <h5>{{style}}</h5>
+                            <h5>
+                                {{!-- {{style}} --}}
+                                </h5>
                         </div>
-                        Description: {{description}} <br>
-                        This style takes: {{time_alloted}} <br>
-                        ${{price}}
+                        Description: 
+                        {{!-- {{description}} <br> --}}
+                        This style takes: 
+                        {{!-- {{time_alloted}} <br>
+                        ${{price}} --}}
                     </div>
-                    <div class="col-2 d-flex"><button class="btn justify-content-center align-self-center">Book Now</div>
+                    <div class="col-2 d-flex"><button class="btn justify-content-center align-self-center">Edit</div>
                 </div>
-                 {{/each}}
+                 {{!-- {{/each}} --}}
             </div> <!--end card -->
        
         </div> <!--end card-deck -->
