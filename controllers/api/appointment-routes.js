@@ -1,11 +1,17 @@
 const router = require('express').Router();
-const { Appointment, Customer, Stylist } = require('../../models');
+const { Appointment, Customer } = require('../../models');
 const withAuth = require("../../utils/auth");
 
 //get api/appointment
 router.get('/',  (req, res) => {
     Appointment.findAll({
-        attributes: {exclude: ['password']}
+        attributes: ['id', 'customer_id','appointment_date', 'appointment_time' , 'stylist_id'],
+        include: [
+            {
+                model: Customer,
+                attributes: ['username']
+            }
+        ]
     })
         .then(dbAppointmentData => res.json(dbAppointmentData))
         .catch(err => {

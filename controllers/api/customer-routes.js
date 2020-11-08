@@ -30,12 +30,12 @@ router.get('/:id', (req, res) => {
        
       ]
     })
-      .then(dbCustData => {
-        if (!dbCustData) {
+      .then(dbCustomerData => {
+        if (!dbCustomerData) {
           res.status(404).json({ message: 'No user found with this id' });
           return;
         }
-        res.json(dbCustData);
+        res.json(dbCustomerData);
       })
       .catch(err => {
         console.log(err);
@@ -56,7 +56,7 @@ router.post("/", (req, res) => {
   
   .then(dbCustomerData => {
     //req.session.save(() => {
-    req.session.customerId = dbCustomerData.id;
+    //req.session.customerId = dbCustomerData.id;
       //req.session.username = dbCustomerData.username;
       //req.session.loggedIn = true;
       console.log("hello")
@@ -78,12 +78,12 @@ router.put('/:id', (req, res) => {
         id: req.body.id,
       }
     })
-      .then(dbCustData => {
-        if (!dbCustData[0]) {
+      .then(dbCustomerData => {
+        if (!dbCustomerData[0]) {
           res.status(404).json({ message: 'No customer found with this id' });
           return;
         }
-        res.json(dbCustData);
+        res.json(dbCustomerData);
       })
       .catch(err => {
         console.log(err);

@@ -19,8 +19,11 @@ Appointment.init(
       autoIncrement: true
     },
     customer_id: {
-      type: DataTypes.STRING,
-      allowNull: false
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'customer',
+        key: 'id',
+        },
     },
     appointment_date: {
       type: DataTypes.DATE,
