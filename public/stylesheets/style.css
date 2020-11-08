@@ -53,6 +53,14 @@ nav a{
 nav a:hover{
     color: var(--secondaccent);
 }
+
+.page-title {
+    color: var(--tertiary);
+    font-size:2em;
+    font-style: italic;
+    font-weight: bold;
+
+}
 footer{
     border-top: .5px solid var(--lightgray);
     font-size: .75em;

@@ -1,15 +1,19 @@
 <div class="row">
     <div class="col-12 mt-3">
-        <h2>Choose Your Style!</h2>
-        
-         <h4>{{category}}</h4>
-         
+        <h2 class="page-title">Choose Your Style! Book Your Appointment!</h2>         
         <div class="card-deck">
          
             <div class="card">
                 {{#each services}}
                 <div class="row border border-light">
-                    <div class="col-3"><img class="img-thumbnail" style="max-width:100px; max-height:100px" src="/images/{{category}}.jpg"></div>
+                    <div class="col-3 d-flex justify-content-center align-middle">
+                        <figure class="figure">
+                            <img class="img-thumbnail " style="max-width:100px; max-height:100px" src="/images/{{category}}.jpg">       
+                        <figcaption class="figure-caption">
+                            Category: {{category}}
+                        </figcaption>
+                        </figure>
+                      </div>  
                     <div class="col-7">
                         <div class="card-header">
                             <h5>{{style}}</h5>
@@ -18,7 +22,7 @@
                         This style takes: {{time_alloted}} <br>
                         ${{price}}
                     </div>
-                    <div class="col-2"><button class="btn">Book Now</div>
+                    <div class="col-2 d-flex"><button class="btn justify-content-center align-self-center">Book Now</div>
                 </div>
                  {{/each}}
             </div> <!--end card -->
