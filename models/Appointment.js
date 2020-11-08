@@ -26,15 +26,12 @@ Appointment.init(
       type: DataTypes.DATE,
       allowNull: false,
       validate: {
-        isNumeric: true
+        isDate: true
       }
     },
     appointment_time: {
         type: DataTypes.TIME,
-        allowNull: false,
-        validate: {
-          isNumeric: true
-        }
+        allowNull: false
     },
     stylist_id: {
         type: DataTypes.INTEGER,

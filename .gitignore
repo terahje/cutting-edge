@@ -1,7 +1,5 @@
-<<<<<<< HEAD
-node_modules
-=======
 node-modules
->>>>>>> main
 .DS_Store
 .env
+node_modules
+

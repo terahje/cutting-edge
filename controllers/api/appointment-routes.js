@@ -3,9 +3,9 @@ const { Appointment } = require('../../models');
 const withAuth = require("../../utils/auth");
 
 //get api/appointment
-router.get('/', withAuth, (req, res) => {
+router.get('/',  (req, res) => {
     Appointment.findAll({
-        Appointment: {exclude: ['password']}
+        attributes: {exclude: ['password']}
     })
         .then(dbAppointmentData => res.json(dbAppointmentData))
         .catch(err => {
@@ -15,7 +15,7 @@ router.get('/', withAuth, (req, res) => {
 });
 
 //get api/appointment/1
-router.get('/:id', withAuth, (req, res) => {
+router.get('/:id', (req, res) => {
     Appointment.findOne({
         attributes: {exclude: ['password']},
         where: {
@@ -36,9 +36,9 @@ router.get('/:id', withAuth, (req, res) => {
 });
 
 //post api/appointment
-router.post('/', withAuth, (req, res) => {
+router.post('/', (req, res) => {
     Appointment.create({
-        username: req.body.username,
+        customer_id: req.body.customer_id,
         appointment_date: req.body.appointment_date,
         appointment_time: req.body.appointment_time,
         stylist_id: req.body.stylist_id,
@@ -52,7 +52,7 @@ router.post('/', withAuth, (req, res) => {
 
 //login route
 //http://localhost:3001/api/appointment/login
-router.post('/login', withAuth, (req, res) => {
+router.post('/login', (req, res) => {
     // expects {email: 'lernantino@gmail.com', password: 'password1234'}
     Appointment.findOne({
       where: {
@@ -75,7 +75,7 @@ router.post('/login', withAuth, (req, res) => {
   });
 
 //put api/appointment/i
-router.put('/:id', withAuth, (req, res) => {
+router.put('/:id', (req, res) => {
     Appointment.update(req.body, {
         individualHooks: true,
         where: {
@@ -96,7 +96,7 @@ router.put('/:id', withAuth, (req, res) => {
 });
 
 //delete api/appointment/i
-router.delete('/:id', withAuth, (req, res) => {
+router.delete('/:id', (req, res) => {
     Appointment.destroy({
         where: {
             id: req.params.id

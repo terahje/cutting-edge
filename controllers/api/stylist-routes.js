@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Stylist } = require('../../models');
+const { Stylist, Service, Appointment } = require('../../models');
 
 //get api/stylists
 router.get('/', (req, res) => {
@@ -19,7 +19,17 @@ router.get('/:id', (req, res) => {
         attributes: {exclude: ['password']},
         where: {
             id: req.params.id
-        }
+        },
+        include: [
+            {
+                model: Service,
+                attributes: ['id', 'style', 'customer_id', 'stylist_id', 'style_image', 'price', 'time_alloted']
+            },
+            {
+                model: Appointment,
+                attributes: ['id', 'customer_id', 'appointment_date', 'appointment_time', 'stylist_id']
+            }
+        ]
     })
     .then(dbStylistData => {
         if(!dbStylistData) {

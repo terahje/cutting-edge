@@ -34,8 +34,8 @@ Description
 
 :question: [Questions](quest)
 ==
->:email:Email: jd9913@gmail.com<br>
->GitHub Username: jd9913, terahje<br>
+>:email:Email: jd9913@gmail.com , aklobby@gmail.com<br>
+>GitHub Username: jd9913, terahje, aksmith5239<br>
 >:link: Repository Link: https://github.com/terahje/cutting-edge<br>
 
 [Licenses](#license)
