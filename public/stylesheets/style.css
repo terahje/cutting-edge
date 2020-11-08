@@ -29,9 +29,12 @@ header h1 {
     
 }
 
-nav {
-   
-    /* justify-content: space-around; */
+.btn {
+    background-color: var(--secondary);
+    color: var(--accent);
+}
+.btn button:hover{
+    color: var(--tertiary);
 }
 h1 a{
     color: var(--lightgray);
