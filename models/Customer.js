@@ -41,7 +41,7 @@ Customer.init(
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        len: [4]
+        len: []
       }
     },
     phone: {
@@ -70,7 +70,7 @@ Customer.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'Customer'
+    modelName: 'customer'
   }
 );
 

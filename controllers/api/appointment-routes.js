@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Appointment } = require('../../models');
+const { Appointment, Customer, Stylist } = require('../../models');
 const withAuth = require("../../utils/auth");
 
 //get api/appointment
@@ -44,6 +44,7 @@ router.post('/', (req, res) => {
         stylist_id: req.body.stylist_id,
     })
     .then(dbAppointmentData => res.json(dbAppointmentData))
+    console.log("hello")
     .catch(err => {
         console.log(err);
         res.status(500).json(err);
@@ -60,7 +61,7 @@ router.post('/login', (req, res) => {
       }
     }).then(dbAppointmentData => {
       if (!dbAppointmentData) {
-        res.status(400).json({ message: 'No stylist with that email address!' });
+        res.status(400).json({ message: 'No appointment with that email address!' });
         return;
       }
   
@@ -84,7 +85,7 @@ router.put('/:id', (req, res) => {
     })
     .then(dbAppointmentData => {
         if(!dbAppointmentData[0]) {
-            res.status(404).json({message: "No stylist found with this id"});
+            res.status(404).json({message: "No appointment found with this id"});
             return;
         }
         res.json(dbAppointmentData);
@@ -104,7 +105,7 @@ router.delete('/:id', (req, res) => {
     })
     .then(dbAppointmentData => {
         if(!dbAppointmentData) {
-            res.status(404).json({message: "No stylist with that id found"});
+            res.status(404).json({message: "No appointment with that id found"});
             return;
         }
         res.json(dbAppointmentData);
