@@ -15,6 +15,7 @@ router.get('/', (req, res) => {
         });
 });
 
+// GET Customer by id
 router.get('/:id', (req, res) => {
     Customer.findOne({
       attributes: { exclude: ['password'] },
@@ -29,12 +30,12 @@ router.get('/:id', (req, res) => {
        
       ]
     })
-      .then(dbUserData => {
-        if (!dbUserData) {
+      .then(dbCustData => {
+        if (!dbCustData) {
           res.status(404).json({ message: 'No user found with this id' });
           return;
         }
-        res.json(dbUserData);
+        res.json(dbCustData);
       })
       .catch(err => {
         console.log(err);
@@ -42,6 +43,7 @@ router.get('/:id', (req, res) => {
       });
   });
 
+  // POST Customer
 router.post("/", (req, res) => {
     Customer.create({
         first_name: req.body.first_name,
@@ -54,7 +56,7 @@ router.post("/", (req, res) => {
   
   .then(dbCustomerData => {
     //req.session.save(() => {
-      //req.session.customerId = dbCustomerData.id;
+    req.session.customerId = dbCustomerData.id;
       //req.session.username = dbCustomerData.username;
       //req.session.loggedIn = true;
       console.log("hello")
@@ -67,6 +69,27 @@ router.post("/", (req, res) => {
     res.status(500).json(err);
   });
 });
+
+router.put('/:id', (req, res) => { 
+    // pass in req.body instead to only update what's passed through
+    Customer.update(req.body, {
+      individualHooks: true,
+      where: {
+        id: req.body.id,
+      }
+    })
+      .then(dbCustData => {
+        if (!dbCustData[0]) {
+          res.status(404).json({ message: 'No customer found with this id' });
+          return;
+        }
+        res.json(dbCustData);
+      })
+      .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+      });
+  });
 
 router.post("/login", (req, res) => {
     Customer.findOne({
@@ -107,7 +130,7 @@ router.post('/logout', (req, res) => {
   }
 });
 
-router.delete("/customer/:id", (req, res) => {
+router.delete("/:id", (req, res) => {
   Customer.destroy({
     where: {
       id: req.params.id
