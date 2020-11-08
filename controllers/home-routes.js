@@ -30,33 +30,6 @@ router.get('/', (req, res) => {
    });
 });
 
-router.get('/admin', (req, res) => {
-    Service.findAll({
-        attributes: [
-            'id',
-            'category',
-            'style',
-            'description',
-            'price',
-            'time_alloted',
-            'stylist_id'
-        ],
-        include: [
-            {
-                model: Stylist,
-                attributes: ['salon_name']
-            }
-        ]
-    })
-    .then(dbServiceData => {
-        const services = dbServiceData.map(service => service.get({plain:true}));
-        res.render('edit-services', { services });
-    })
-    .catch(err => {
-        conole.log(err);
-        res.status(500).json(err);
-    });
- });
 
 
 

@@ -36,6 +36,7 @@ header h1 {
 .btn button:hover{
     color: var(--tertiary);
 }
+
 h1 a{
     color: var(--lightgray);
 }
@@ -54,6 +55,12 @@ nav a:hover{
     color: var(--secondaccent);
 }
 
+a {
+    color: var(--accent); 
+}
+a:hover {
+    color: var(--light);
+}
 .page-title {
     color: var(--tertiary);
     font-size:2em;
