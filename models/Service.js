@@ -24,10 +24,6 @@ Service.init(
            type: DataTypes.STRING,
            allowNull: false
        },
-        style_image: {
-           type: DataTypes.STRING,
-           allowNull: false
-       },
         price: {
            type: DataTypes.DECIMAL,
            allowNull: false
