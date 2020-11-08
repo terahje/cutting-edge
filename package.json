@@ -4,17 +4,31 @@
   "description": "An appointment scheduler for a hair salon",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/terahje/cutting-edge.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Jennifer, Allison, Terahje",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/terahje/cutting-edge/issues"
   },
-  "homepage": "https://github.com/terahje/cutting-edge#readme"
+  "homepage": "https://github.com/terahje/cutting-edge#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.0",
+    "connect-session-sequelize": "^7.0.4",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^5.2.0",
+    "express-session": "^1.17.1",
+    "jest": "^26.6.2",
+    "material-design-kit": "^2.2.1",
+    "mysql2": "^2.2.5",
+    "nodemon": "^2.0.6",
+    "sequelize": "^6.3.5"
+  }
 }
