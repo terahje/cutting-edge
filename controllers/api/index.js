@@ -11,5 +11,4 @@ router.use('/appointment', appointmentRoutes);
 router.use('/stylists', stylistRoutes);
 router.use('/service', serviceRoutes);
 
-
 module.exports = router;

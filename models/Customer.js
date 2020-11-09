@@ -4,9 +4,9 @@ const sequelize = require('../config/connection');
 
 // create our customers model
 class Customer extends Model {
-  checkPassword(loginPw) {
-    return bcrypt.compareSync(loginPw, this.password);
-  }
+  //checkPassword(loginPw) {
+    //return bcrypt.compareSync(loginPw, this.password);
+//  }
 }
 
 Customer.init(
@@ -46,31 +46,28 @@ Customer.init(
     },
     phone: {
         type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-            isNumeric: true
-        }
+        allowNull: false
       }
   },
   
   {
-    hooks: {
+    //hooks: {
       // set up beforeCreate lifecycle "hook" functionality
-      async beforeCreate(newCustomerData) {
-        newCustomerData.password = await bcrypt.hash(newCustomerData.password, 10);
-        return newCustomerData;
-      },
+     // async beforeCreate(newCustomerData) {
+       // newCustomerData.password = await bcrypt.hash(newCustomerData.password, 10);
+        //return newCustomerData;
+      //},
 
-      async beforeUpdate(newCustomerData) {
-        newCustomerData.password = await bcrypt.hash(newCustomerData.password, 10);
-        return newCustomerData;
-      }
-    },
+      //async beforeUpdate(newCustomerData) {
+        //newCustomerData.password = await bcrypt.hash(newCustomerData.password, 10);
+        //return newCustomerData;
+     // }
+    //},
     sequelize,
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'Customer'
+    modelName: 'customer'
   }
 );
 

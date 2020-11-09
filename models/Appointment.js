@@ -5,9 +5,9 @@ const sequelize = require('../config/connection');
 // create our User model
 class Appointment extends Model {
   // set up method to run on instance data (per Appointment) to check password
-  checkPassword(loginPw) {
-    return bcrypt.compareSync(loginPw, this.password);
-  }
+  //checkPassword(loginPw) {
+    //return bcrypt.compareSync(loginPw, this.password);
+  //}
 }
 
 Appointment.init(
@@ -19,8 +19,11 @@ Appointment.init(
       autoIncrement: true
     },
     customer_id: {
-      type: DataTypes.STRING,
-      allowNull: false
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'customer',
+        key: 'id',
+        },
     },
     appointment_date: {
       type: DataTypes.DATE,
@@ -39,26 +42,28 @@ Appointment.init(
           model: 'stylist',
           key: 'id',
           },
-    }
-  },
-  {
-    hooks: {
+    //}
+ // },
+  //{
+    //hooks: {
       // set up beforeCreate lifecycle "hook" functionality
-      async beforeCreate(newAppointmentData) {
-        newAppointmentData.password = await bcrypt.hash(newAppointmentData.password, 10);
-        return newAppointmentData;
-      },
+     // async beforeCreate(newAppointmentData) {
+       // newAppointmentData.password = await bcrypt.hash(newAppointmentData.password, 10);
+        //return newAppointmentData;
+      //},
 
-      async beforeUpdate(newAppointmentData) {
-        newAppointmentData.password = await bcrypt.hash(newAppointmentData.password, 10);
-        return newAppointmentData;
-      }
+      //async beforeUpdate(newAppointmentData) {
+       // newAppointmentData.password = await bcrypt.hash(newAppointmentData.password, 10);
+        //return newAppointmentData;
+      //}
     },
+  },
+    {
     sequelize,
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'Appointment'
+    modelName: 'appointment'
   }
 );
 
