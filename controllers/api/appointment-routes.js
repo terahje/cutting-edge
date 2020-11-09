@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { Appointment, Customer } = require('../../models');
-const withAuth = require("../../utils/auth");
+//const withAuth = require("../../utils/auth");
 
 //get api/appointment
 router.get('/',  (req, res) => {

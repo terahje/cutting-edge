@@ -27,6 +27,7 @@
     "express-session": "^1.17.1",
     "jest": "^26.6.2",
     "material-design-kit": "^2.2.1",
+    "multer": "^1.4.2",
     "mysql2": "^2.2.5",
     "nodemon": "^2.0.6",
     "sequelize": "^6.3.5",
