@@ -4,8 +4,6 @@
         <form class="service-form">
             <div>
                 <div class="row">
-
-               
                 <div class="col-6">
                 <div>
                     <label for="category">category:</label>
@@ -52,25 +50,25 @@
         <div class="card-deck">
          
             <div class="card">
-                {{#each services}}
+                {{#each services as |service|}}
                 <div class="row border border-light">
                     <div class="col-3 d-flex justify-content-center align-middle">
                         <figure class="figure">
-                            <img class="img-thumbnail " style="max-width:100px; max-height:100px" src="/images/{{category}}.jpg">       
+                            <img class="img-thumbnail " style="max-width:100px; max-height:100px" src="/images/{{service.category}}.jpg">       
                         <figcaption class="figure-caption">
-                            Category: {{category}}
+                            Category: {{service.category}}
                         </figcaption>
                         </figure>
                       </div>  
                     <div class="col-7">
                         <div class="card-header">
-                            <h5>{{style}}</h5>
+                            <h5>{{service.style}}</h5>
                         </div>
-                        Description: {{description}} <br>
-                        This style takes: {{time_alloted}} <br>
-                        ${{price}}
+                        Description: {{service.description}} <br>
+                        This style takes: {{service.time_alloted}} <br>
+                        ${{service.price}}
                     </div>
-                    <div class="col-2 d-flex"><button class="btn justify-content-center align-self-center"><a href="/admin/edit/{{id}}">Edit</a></div>
+                    <div class="col-2 d-flex"><button class="btn justify-content-center align-self-center"><a href="/admin/edit/{{service.id}}">Edit</a></div>
                 </div>
                  {{/each}}
             </div> <!--end card -->
