@@ -1,47 +1,51 @@
 <div class="row">
     <div class="col-12 mt-3">
         <h2 class="page-title">Add New Service</h2>
-        <form class="service-form">
+        <form class="new-service-form">
             <div>
                 <div class="row">
                 <div class="col-6">
                 <div>
-                    <label for="category">category:</label>
-                    <select type="text" id="category-create" class="form-control">
-                        <option id="" value="">Choose a Category</option>
-                        <option id="braids" value="braids">Braids</option>
-                        <option id="cuts" value="cuts">Cuts</option>
-                        <option id="color" value="color">Color</option>
-                        <option id="perms" value="perms">Perms</option>
+                    <label for="style">style name:</label>
+                    <input name="style-new" type="text" id="style-new" class="form-control" value="{{service.style}}"/>
+                </div>
+                <div>
+                    <label for="category">category: {{service.category}}</label>
+                    <select type="text" id="category" class="form-control" name="category-new">
+                        <option value="">Choose a Category</option>
+                        <option value="Braids">Braids</option>
+                        <option value="Cuts">Cuts</option>
+                        <option value="Color">Color</option>
+                        <option value="Perms">Perms</option>
                     </select>
                 </div>
-                <div>
-                    <label for="style">style name:</label>
-                    <input type="text" id="style-create" class="form-control"/>
-                </div>
+                
                 <div>
                     <label for="time_alloted">time needed for style:</label>
-                    <input type="time" id="time-create" class="form-control"/>
+                    <input type="time" id="time-new" name="time-new" class="form-control" value="{{service.time_alloted}}"/>
                 </div>
                 
                 </div>
                 <div class="col-6">
                 <div>
                     <label for="description">description:</label>
-                    <textarea class="form-control" name="description-create"></textarea>
+                    <textarea class="form-control" name="description-new">{{service.description}}</textarea>
                 </div>
                 
                 <div>
                     <label for="price">price of service:</label>
-                    <input type="decimal" id="price-create" class="form-control"/>
+                    <input type="decimal" name="price-new" id="price-new" class="form-control" value="{{service.price}}"/>
                 </div>
                 </div>
                  </div>
                 <br>
                 <div>
-                   <button class="btn float-right" type="submit">Create New Service</button>
+                    {{!-- <button class="btn btn-danger float-right delete-service" type="button">Delete Service</button> &nbsp; --}}
+                    <button class="btn btn-primary float-left new-service" type="submit">Create New Service</button>
+                   
                 </div>
             </div>
+          
         </form>
         <br>
         <hr>
@@ -74,6 +78,6 @@
             </div> <!--end card -->
        
         </div> <!--end card-deck -->
-
+<script src="/javascript/new-service.js"></script>
     </div> <!--end col -->
 </div> <!--end row -->
