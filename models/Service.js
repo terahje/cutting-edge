@@ -29,7 +29,7 @@ Service.init(
            allowNull: false
        },
         time_alloted: {
-            type: DataTypes.TIME,
+            type: DataTypes.INTEGER,
 
        },
         customer_id: {

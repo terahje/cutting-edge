@@ -7,7 +7,7 @@ const serviceData = [
         description: '2 braids in cornrows braided close to the scalp. This style is the most iconic cornrow style.',
         style_image: 'cornrow image',
         price: '100',
-        time_alloted: '01:00:00',
+        time_alloted: '60',
     }, 
     {
         category: 'Braids',
@@ -15,7 +15,7 @@ const serviceData = [
         description: 'A special way of braiding that adds extensions to the hair.',
         style_image: 'crochet image',
         price: '100',
-        time_alloted: '01:30:00',
+        time_alloted: '90',
     }, 
     {
         category: 'Braids',
@@ -23,7 +23,7 @@ const serviceData = [
         description: 'A special way of braiding that adds extensions to the hair.',
         style_image: 'crochet image',
         price: '100',
-        time_alloted: '02:00:00',
+        time_alloted: '120',
     }, 
     {
         category: 'Braids',
@@ -31,7 +31,7 @@ const serviceData = [
         description: '',
         style_image: 'twist image',
         price: '100',
-        time_alloted: '02:00:00',
+        time_alloted: '120',
     }, 
     {
         category: 'Braids',
@@ -39,7 +39,7 @@ const serviceData = [
         description: '',
         style_image: 'Loc image',
         price: '100',
-        time_alloted: '02:30:00',
+        time_alloted: '150',
     }, 
     {
         category: 'Braids',
@@ -47,7 +47,7 @@ const serviceData = [
         description: '',
         style_image: 'single braid image',
         price: '100',
-        time_alloted: '06:30:00',
+        time_alloted: '390',
     }, 
     {
         category: 'Braids',
@@ -55,7 +55,7 @@ const serviceData = [
         description: '',
         style_image: 'box braid image',
         price: '100',
-        time_alloted: '06:30:00',
+        time_alloted: '390',
     }, 
     {
         category: 'Hair',
@@ -63,7 +63,7 @@ const serviceData = [
         description: '',
         style_image: 'Hair cut image',
         price: '50',
-        time_alloted: '00:30:00',
+        time_alloted: '30',
     }, 
     {
         category: 'Hair',
@@ -71,7 +71,7 @@ const serviceData = [
         description: '',
         style_image: 'flat iron image',
         price: '75',
-        time_alloted: '02:30:00',
+        time_alloted: '150',
     }, 
     {
         category: 'Hair',
@@ -79,7 +79,7 @@ const serviceData = [
         description: '',
         style_image: 'flat iron image',
         price: '40',
-        time_alloted: '00:30:00',
+        time_alloted: '30',
     }, 
     {
         category: 'Hair',
@@ -87,7 +87,7 @@ const serviceData = [
         description: '',
         style_image: 'perm image',
         price: '100',
-        time_alloted: '02:00:00',
+        time_alloted: '120',
     }, 
     {
         category: 'Hair',
@@ -95,7 +95,7 @@ const serviceData = [
         description: '',
         style_image: 'hair color image',
         price: '100',
-        time_alloted: '02:30:00',
+        time_alloted: '150',
     }, 
     {
         category: 'Hair',
@@ -103,7 +103,7 @@ const serviceData = [
         description: '',
         style_image: 'hair conditioning image',
         price: '75',
-        time_alloted: '01:30:00',
+        time_alloted: '120',
     },
         
 ];
