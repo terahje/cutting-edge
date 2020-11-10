@@ -58,7 +58,7 @@ const serviceData = [
         time_alloted: '390',
     }, 
     {
-        category: 'Hair',
+        category: 'Cut',
         style: 'Hair Cut or Trim',
         description: '',
         style_image: 'Hair cut image',
@@ -66,7 +66,7 @@ const serviceData = [
         time_alloted: '30',
     }, 
     {
-        category: 'Hair',
+        category: 'Cut',
         style: 'Wash with flatiron or wash press',
         description: '',
         style_image: 'flat iron image',
@@ -74,7 +74,7 @@ const serviceData = [
         time_alloted: '150',
     }, 
     {
-        category: 'Hair',
+        category: 'Cut',
         style: 'Blow dry',
         description: '',
         style_image: 'flat iron image',
@@ -82,7 +82,7 @@ const serviceData = [
         time_alloted: '30',
     }, 
     {
-        category: 'Hair',
+        category: 'Perm',
         style: 'Perm or Relaxer',
         description: '',
         style_image: 'perm image',
@@ -90,7 +90,7 @@ const serviceData = [
         time_alloted: '120',
     }, 
     {
-        category: 'Hair',
+        category: 'Color',
         style: 'Hair Coloring',
         description: '',
         style_image: 'hair color image',
@@ -98,7 +98,7 @@ const serviceData = [
         time_alloted: '150',
     }, 
     {
-        category: 'Hair',
+        category: 'Cut',
         style: 'Conditioning Treatments',
         description: '',
         style_image: 'hair conditioning image',
