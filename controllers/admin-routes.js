@@ -31,7 +31,40 @@ router.get('/', (req, res) => {
  });
 
  router.get('/edit/:id', (req, res) => {
-     res.render('edit-service-single');
+    Service.findOne({
+        where: {
+            id: req.params.id
+        }, 
+        attributes: [
+            'id',
+            'category',
+            'style',
+            'description',
+            'price',
+            'time_alloted',
+            'stylist_id'
+        ],
+        include: [
+            {
+                model: Stylist,
+                attributes: ['salon_name']
+            }
+        ]
+    })
+    .then(dbServiceData => {
+        if(!dbServiceData) {
+            res.status(404).json({message: "We could not find a service with that id"});
+            return;
+        }
+        const service = dbServiceData.get({plain: true});
+        res.render('edit-service-single', {
+            service,
+        });
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    })
     
 });
 
