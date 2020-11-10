@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
 const {Service, Stylist} = require('../models');
+const calendar=require('../public/javascript/calendar');
 
 router.get('/', (req, res) => {
    Service.findAll({
@@ -25,7 +26,7 @@ router.get('/', (req, res) => {
        res.render('homepage', { services });
    })
    .catch(err => {
-       conole.log(err);
+       console.log(err);
        res.status(500).json(err);
    });
 });
@@ -35,6 +36,11 @@ router.get('/', (req, res) => {
 
 router.get('/login', (req, res) => {
     res.render('login');
+});
+
+
+router.get('/calendar', (req, res) => {
+    res.render('calendar', {calendar});
 });
 
 module.exports = router;

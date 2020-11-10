@@ -1,19 +1,23 @@
 
+var Calendar = require('tui-calendar'); 
+/* CommonJS */
+var DatePicker=require('tui-date-picker');
+var TimePicker=require('tui-time-picker');
 
-import Calendar from 'tui-calendar'; /* ES6 */
-import "tui-calendar/dist/tui-calendar.css";
 
-// If you use the default popups, use this.
-import 'tui-date-picker/dist/tui-date-picker.css';
-import 'tui-time-picker/dist/tui-time-picker.css';
+require("tui-calendar/dist/calendar.css");
 
-let calendar=new Calendar('#calendar', {
+
+var calendar = new Calendar(('#calendar'), {
     defaultView: 'month',
     taskView: true,
-    template:{
-        monthDayname: function(dayname){
-            return '<span class="calendar-week-dayname-name">' + dayname.label+'</span>';
-        }
+    template: {
+      monthDayname: function(dayname) {
+        return '<span class="calendar-week-dayname-name">' + dayname.label + '</span>';
+      }
+      
     }
-})
+  });
 
+
+    module.exports=calendar;
