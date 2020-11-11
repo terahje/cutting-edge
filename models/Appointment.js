@@ -28,13 +28,10 @@ Appointment.init(
     appointment_date: {
       type: DataTypes.DATE,
       allowNull: false,
-      validate: {
-        isDate: true
-      }
     },
     appointment_time: {
         type: DataTypes.TIME,
-        allowNull: false
+        allowNull: false,
     },
     stylist_id: {
         type: DataTypes.INTEGER,
@@ -42,23 +39,21 @@ Appointment.init(
           model: 'stylist',
           key: 'id',
           },
-    //}
- // },
-  //{
-    //hooks: {
-      // set up beforeCreate lifecycle "hook" functionality
-     // async beforeCreate(newAppointmentData) {
-       // newAppointmentData.password = await bcrypt.hash(newAppointmentData.password, 10);
-        //return newAppointmentData;
-      //},
-
-      //async beforeUpdate(newAppointmentData) {
-       // newAppointmentData.password = await bcrypt.hash(newAppointmentData.password, 10);
-        //return newAppointmentData;
-      //}
-    },
+    }
   },
-    {
+  {
+    hooks: {
+      // set up beforeCreate lifecycle "hook" functionality
+      async beforeCreate(newAppointmentData) {
+        newAppointmentData.password = await bcrypt.hash(newAppointmentData.password, 10);
+        return newAppointmentData;
+      },
+
+      async beforeUpdate(newAppointmentData) {
+        newAppointmentData.password = await bcrypt.hash(newAppointmentData.password, 10);
+        return newAppointmentData;
+      }
+    },
     sequelize,
     timestamps: false,
     freezeTableName: true,
