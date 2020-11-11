@@ -1,0 +1,32 @@
+<section>
+    <div class="row">
+    <div class="col-12 mt-3">
+         <div>
+            <h2 class="page-title">My Upcoming Appointment</h2>
+           
+         </div>
+            <div>
+                <div class="row">
+                <div class="col">
+                <div class="card">
+                    <div class="card-header">
+                        {{customer.username}}
+                      <h3>You are booked for:{{style}}<br></h3>
+                      <h4>On: {{appointment.appointment_date}} at: {{appointment.appointment_time}}</h4>
+                    </div>
+                    <div class="card-body">
+                        <h5>Description of Service: {{service.description}}</h5>
+                        <h5>Price: {{service.price}}</h5>
+                        <h5>Your stylist will be: 
+                        </h5>
+                    </div> 
+                    <div class="card-footer">
+                        <p class="text-center">Thank you for booking with The Cutting Edge</p>
+                    </div>  
+                </div>
+                <div> 
+                </div>
+            </div>
+    </div> <!--end col -->
+</div> <!--end row -->
+</section>
