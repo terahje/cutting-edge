@@ -36,6 +36,10 @@ Appointment.belongsTo(Customer, {
     foreignKey: 'customer_id',
   });
 
+// Appointment.hasOne(Stylist, {
+//     foreignKey: 'stylist_id'
+// });
+
 module.exports = {
     Customer,
     Appointment,

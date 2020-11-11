@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const { Appointment } = require("../../models");
-const { Customer } = require("../../models");
+const { Customer, Service } = require("../../models");
 //const withAuth = require("../../utils/auth");
 
 //get api/customer
@@ -21,15 +21,24 @@ router.get('/:id', (req, res) => {
       attributes: { exclude: ['password'] },
       where: {
         id: req.params.id
-      },
-      include: [
+    },
+    attributes: [
+        'id',
+        'username',
+        'first_name',
+        'last_name',
+    ],
+    include: [
         {
-          model: Appointment,
-          attributes: ['id', 'appointment_date', 'appointment_time', 'stylist_id']
-        }
-       
-      ]
-    })
+            model: Appointment,
+            attributes: ['id', 'customer_id', 'appointment_date', 'appointment_time', 'stylist_id'],   
+        }, 
+        {
+            model: Service,
+            attributes: ['style', 'description'],
+        }      
+    ]
+})
       .then(dbCustomerData => {
         if (!dbCustomerData) {
           res.status(404).json({ message: 'No user found with this id' });
@@ -75,7 +84,7 @@ router.put('/:id', (req, res) => {
     Customer.update(req.body, {
       individualHooks: true,
       where: {
-        id: req.body.id,
+        id: req.params.id,
       }
     })
       .then(dbCustomerData => {
