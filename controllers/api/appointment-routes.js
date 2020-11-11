@@ -44,7 +44,7 @@ router.get('/:id', (req, res) => {
 //post api/appointment
 router.post('/', (req, res) => {
     Appointment.create({
-        customer_id: req.body.customer_id,
+        customer_id: req.session.customer_id,
         appointment_date: req.body.appointment_date,
         appointment_time: req.body.appointment_time,
         // stylist_id: req.body.stylist_id,
@@ -58,27 +58,27 @@ router.post('/', (req, res) => {
 
 //login route
 //http://localhost:3001/api/appointment/login
-router.post('/login', (req, res) => {
-    // expects {email: 'lernantino@gmail.com', password: 'password1234'}
-    Appointment.findOne({
-      where: {
-        email: req.body.email
-      }
-    }).then(dbAppointmentData => {
-      if (!dbAppointmentData) {
-        res.status(400).json({ message: 'No appointment with that email address!' });
-        return;
-      }
+// router.post('/login', (req, res) => {
+//     // expects {email: 'lernantino@gmail.com', password: 'password1234'}
+//     Appointment.findOne({
+//       where: {
+//         email: req.body.email
+//       }
+//     }).then(dbAppointmentData => {
+//       if (!dbAppointmentData) {
+//         res.status(400).json({ message: 'No appointment with that email address!' });
+//         return;
+//       }
   
-      const validPassword = dbAppointmentData.checkPassword(req.body.password);
-      if (!validPassword) {
-        res.status(400).json({ message: 'Incorrect password!' });
-        return;
-      }
+//       const validPassword = dbAppointmentData.checkPassword(req.body.password);
+//       if (!validPassword) {
+//         res.status(400).json({ message: 'Incorrect password!' });
+//         return;
+//       }
   
-      res.json({ stylist: dbAppointmentData, message: 'You are now logged in!' });
-    });
-  });
+//       res.json({ stylist: dbAppointmentData, message: 'You are now logged in!' });
+//     });
+//   });
 
 //put api/appointment/i
 router.put('/:id', (req, res) => {
