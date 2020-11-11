@@ -8,12 +8,12 @@ async function appointmentFormHandler(event) {
 const appointment_date = document.querySelector('input[name="date-book"]').value;
 const appointment_time = document.querySelector('input[name="time-book"]').value;
 //service id
-const id = window.location.toString().split('/')[
-    window.location.toString().split('/').length -1
-];
+// const id = window.location.toString().split('/')[
+//     window.location.toString().split('/').length -1
+// ];
 
-const response = await fetch(`/api/appointment/${id}` , {
-    method: 'PUT',
+const response = await fetch(`/api/appointment/` , {
+    method: 'POST',
     body: JSON.stringify ({
         appointment_date,
         appointment_time
@@ -24,7 +24,7 @@ const response = await fetch(`/api/appointment/${id}` , {
 });
 
 if(response.ok) {
-    document.location.replace('/dashboard');
+    document.location.replace('/');
 } else {
     alert(response.statusText);
 }

@@ -47,10 +47,9 @@ router.post('/', (req, res) => {
         customer_id: req.body.customer_id,
         appointment_date: req.body.appointment_date,
         appointment_time: req.body.appointment_time,
-        stylist_id: req.body.stylist_id,
+        // stylist_id: req.body.stylist_id,
     })
     .then(dbAppointmentData => res.json(dbAppointmentData))
-    console.log("hello")
     .catch(err => {
         console.log(err);
         res.status(500).json(err);
