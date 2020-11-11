@@ -7,7 +7,8 @@ async function appointmentFormHandler(event) {
 
 const appointment_date = document.querySelector('input[name="date-book"]').value;
 const appointment_time = document.querySelector('input[name="time-book"]').value;
-// const customer_id = 
+const customer_id = window.sessionStorage;
+console.log(customer_id);
 //service id
 // const customer_id = window.location.toString().split('/')[
 //     window.location.toString().split('/').length -1
@@ -18,6 +19,7 @@ const response = await fetch(`/api/appointment/` , {
     body: JSON.stringify ({
         appointment_date,
         appointment_time,
+        customer_id
     }), 
     headers: {
         'Content-Type': 'application/json'
