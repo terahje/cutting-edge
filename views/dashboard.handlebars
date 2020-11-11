@@ -2,7 +2,7 @@
     <div class="row">
     <div class="col-12 mt-3">
          <div>
-            <h2 class="page-title">My Upcoming Appointment</h2>
+            {{!-- <h2 class="page-title">My Upcoming Appointment</h2> --}}
            
          </div>
             <div>
@@ -10,15 +10,19 @@
                 <div class="col">
                 <div class="card">
                     <div class="card-header">
-                        {{customer.username}}
+                        <h2 class="page-title">Your Booking Was Successful!</h2>
+                        {{!-- {{customer.username}}
                       <h3>You are booked for:{{style}}<br></h3>
-                      <h4>On: {{appointment.appointment_date}} at: {{appointment.appointment_time}}</h4>
+                      <h4>On: {{appointment.appointment_date}} at: {{appointment.appointment_time}}</h4> --}}
                     </div>
                     <div class="card-body">
-                        <h5>Description of Service: {{service.description}}</h5>
+                        <div class="calendar" id="calendar">
+                            <img src="/images/calendar.png">
+                        </div>
+                        {{!-- <h5>Description of Service: {{service.description}}</h5>
                         <h5>Price: {{service.price}}</h5>
                         <h5>Your stylist will be: 
-                        </h5>
+                        </h5> --}}
                     </div> 
                     <div class="card-footer">
                         <p class="text-center">Thank you for booking with The Cutting Edge</p>
