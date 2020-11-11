@@ -25,6 +25,10 @@ Customer.init(
         type: DataTypes.STRING,
         allowNull: false    
     },
+    phone: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
     email: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -44,13 +48,6 @@ Customer.init(
         len: [4]
       }
     },
-    phone: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-            isNumeric: true
-        }
-      }
   },
   
   {
@@ -61,9 +58,9 @@ Customer.init(
         return newCustomerData;
       },
 
-      async beforeUpdate(newCustomerData) {
-        newCustomerData.password = await bcrypt.hash(newCustomerData.password, 10);
-        return newCustomerData;
+      async beforeUpdate(updatedCustomerData) {
+        updatedCustomerData.password = await bcrypt.hash(updatedCustomerData.password, 10);
+        return updatedCustomerData;
       }
     },
     sequelize,

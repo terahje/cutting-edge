@@ -5,9 +5,9 @@ const sequelize = require('../config/connection');
 // create our User model
 class Appointment extends Model {
   // set up method to run on instance data (per Appointment) to check password
-  checkPassword(loginPw) {
-    return bcrypt.compareSync(loginPw, this.password);
-  }
+  //checkPassword(loginPw) {
+    //return bcrypt.compareSync(loginPw, this.password);
+  //}
 }
 
 Appointment.init(
@@ -28,16 +28,10 @@ Appointment.init(
     appointment_date: {
       type: DataTypes.DATE,
       allowNull: false,
-      validate: {
-        isNumeric: true
-      }
     },
     appointment_time: {
         type: DataTypes.TIME,
         allowNull: false,
-        validate: {
-          isNumeric: true
-        }
     },
     stylist_id: {
         type: DataTypes.INTEGER,
