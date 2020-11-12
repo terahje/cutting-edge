@@ -68,4 +68,7 @@ router.get('/', (req, res) => {
     
 });
 
+router.get('/book/:id', (req, res) => {
+    res.render('book-appointment');
+});
 module.exports = router;

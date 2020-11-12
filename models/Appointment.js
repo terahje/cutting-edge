@@ -3,12 +3,7 @@ const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection');
 
 // create our User model
-class Appointment extends Model {
-  // set up method to run on instance data (per Appointment) to check password
-  //checkPassword(loginPw) {
-    //return bcrypt.compareSync(loginPw, this.password);
-  //}
-}
+class Appointment extends Model {}
 
 Appointment.init(
   {
@@ -42,18 +37,7 @@ Appointment.init(
     }
   },
   {
-    hooks: {
-      // set up beforeCreate lifecycle "hook" functionality
-      async beforeCreate(newAppointmentData) {
-        newAppointmentData.password = await bcrypt.hash(newAppointmentData.password, 10);
-        return newAppointmentData;
-      },
-
-      async beforeUpdate(newAppointmentData) {
-        newAppointmentData.password = await bcrypt.hash(newAppointmentData.password, 10);
-        return newAppointmentData;
-      }
-    },
+   
     sequelize,
     timestamps: false,
     freezeTableName: true,
