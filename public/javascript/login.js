@@ -3,7 +3,7 @@
   
     const emailEl = document.querySelector("#email-login");
     const passwordEl = document.querySelector("#password-login");
-    fetch("/api/user/login", {
+    fetch("/api/custon/login", {
       method: "post",
       body: JSON.stringify({
         email: emailEl.value,
