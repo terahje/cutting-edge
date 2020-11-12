@@ -30,10 +30,6 @@
     "mysql2": "^2.2.5",
     "nodemon": "^2.0.6",
     "sequelize": "^6.3.5",
-    "sqlite3": "^5.0.0",
-    "tui-calendar": "^1.12.14",
-    "tui-code-snippet": "^2.3.2",
-    "tui-date-picker": "^4.1.0",
-    "tui-time-picker": "^2.0.3"
+    "sqlite3": "^5.0.0"
   }
 }
