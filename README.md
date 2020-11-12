@@ -1,5 +1,3 @@
-
-
 ![License](https://img.shields.io/badge/License--blue.svg)
 
 :house: The Cutting Edge <br>
@@ -34,8 +32,8 @@ Description
 
 :question: [Questions](quest)
 ==
->:email:Email: jd9913@gmail.com<br>
->GitHub Username: jd9913, terahje<br>
+>:email:Email: jd9913@gmail.com , aklobby@gmail.com, terahjequinn@gmail.com<br>
+>GitHub Username: [jd9913](https://github.com/jd9913), [terahje](https://github.com/terahje), [aksmith5239](https://github.com/aksmith5239)<br>
 >:link: Repository Link: https://github.com/terahje/cutting-edge<br>
 
 [Licenses](#license)
@@ -47,6 +45,6 @@ Description
 Footer
 --
 
-Made with love :gift_heart: by jd9913, terahje.<br>:copyright: 2020
+Made with love :gift_heart: by jd9913, terahje, aksmith5239.<br>:copyright: 2020
 
         

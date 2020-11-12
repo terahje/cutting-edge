@@ -1,0 +1,35 @@
+<div class="row">
+    <div class="col-12 mt-3">
+        <h2 class="page-title">Book Your Appointment!</h2>         
+        <div class="card-deck">
+         
+            <div class="card col-6">
+                <!-- bring in user from session id and the style from the book button get request -->
+                <!-- Appointment -->
+               <!-- attributes: ['id', 'customer_id','appointment_date', 'appointment_time' , 'stylist_id'], -->
+               <form class="book-appt-form">
+                <div>
+                    <div>
+                        <label for="style">Date:</label>
+                        <input name="date-book" type="date" id="date-book" class="form-control" value="{{service.style}}"/>
+                    </div>
+                    <div>
+                        <label for="style">Time:</label>
+                        <input name="time-book" type="time" id="time-book" class="form-control" value="{{service.style}}"/>
+                    </div>  
+                    <br>
+                <div>
+                    <button class="btn btn-primary float-left book-appt" type="submit">Book Appointment</button>
+                </div>
+
+                </div>
+               </form>
+
+            <script src="/javascript/book-appt.js"></script>
+            </div>
+        </div>    
+
+
+
+    </div> <!--end card -->
+</div> <!--end card-deck -->
