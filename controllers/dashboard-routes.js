@@ -8,7 +8,8 @@ const {Service, Appointment, Customer, Stylist} = require('../models');
 router.get('/:id', (req, res) => {
     Customer.findOne({
         where: {
-            id: req.params.id
+            // id: req.params.id
+            customer_id: req.session.customer_id
         },
         attributes: { exclude: ['password'] },
         where: {

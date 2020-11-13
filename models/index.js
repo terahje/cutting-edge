@@ -12,24 +12,6 @@ Service.belongsTo(Stylist, {
     foreignKey: 'stylist_id'
 });
 
-// Stylist.hasMany(Customer, {
-//     foreignKey: 'stylist_id'
-// });
-
-// Customer.hasOne(Service, {
-//     foreignKey: 'customer_id'
-// });
-// Service.belongsTo(Customer, {
-//     foreignKey: 'customer_id'
-// });
-// Service.hasMany(Customer,  {
-//     foreignKey: 'customer_id'
-// });
-
-// Stylist.hasMany(Appointment, {
-//     foreignKey: 'stylist_id'
-// });
-
 Customer.hasOne(Appointment, {
     foreignKey: 'customer_id'
   });
