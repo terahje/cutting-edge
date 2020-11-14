@@ -82,38 +82,31 @@ router.post("/", (req, res) => {
 
 // Login
 router.post("/login", (req, res) => {
-  console.log("Post Login is working!");
-  console.dir(req.body);
-    Customer.findOne({
-    where: {
-      email: req.body.email
-    }
-  }).then(dbCustomerData => {
-    if (!dbCustomerData) {
-      res.status(400).json({ message: 'No Customer account found!' });
-      return;
-    }
+  Customer.findOne({
+  where: {
+    email: req.body.email
+  }
+}).then(dbCustomerData => {
+  if (!dbCustomerData) {
+    res.status(400).json({ message: 'No Customer account found!' });
+    return;
+  }
 
-    res.json({ user: dbCustomerData });
+  const validPassword = dbCustomerData.checkPassword(req.body.password);
 
-    const validPassword = dbCustomerData.checkPassword(req.body.password);
+  if (!validPassword) {
+    res.status(400).json({ message: 'Incorrect password!' });
+    return;
+  }
 
-    if (!validPassword) {
-      res.status(400).json({ message: 'Incorrect password!' });
-      return;
-    }
+  req.session.save(() => {
+    req.session.customerId = dbCustomerData.id;
+    req.session.username = dbCustomerData.username;
+    req.session.loggedIn = true;
 
-    req.session.save(() => {
-      req.session.customerId = dbCustomerData.id;
-      req.session.email = dbCustomerData.email;
-      req.session.loggedIn = true;
-      
-     res.json({ customer: dbCustomerData, message: 'You are now logged in!' });
-    });
-  })
-  .catch(err => {
-    console.log("Our Login Error" , err);
-  })
+    res.json({ customer: dbCustomerData, message: 'You are now logged in!' });
+  });
+});
 });
 
 router.post("/logout", (req, res) => {

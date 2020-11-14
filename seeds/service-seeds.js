@@ -8,6 +8,8 @@ const serviceData = [
         style_image: 'cornrow image',
         price: '100',
         time_alloted: '60',
+        customer_id: '1',
+        stylist_id: '1'
     }, 
     {
         category: 'Braids',
@@ -16,6 +18,8 @@ const serviceData = [
         style_image: 'crochet image',
         price: '100',
         time_alloted: '90',
+        customer_id: '2',
+        stylist_id: '1'
     }, 
     {
         category: 'Braids',
@@ -24,6 +28,8 @@ const serviceData = [
         style_image: 'crochet image',
         price: '100',
         time_alloted: '120',
+        customer_id: '8',
+        stylist_id: '1'
     }, 
     {
         category: 'Braids',
@@ -32,6 +38,8 @@ const serviceData = [
         style_image: 'twist image',
         price: '100',
         time_alloted: '120',
+        customer_id: '2',
+        stylist_id: '1'
     }, 
     {
         category: 'Braids',
@@ -40,6 +48,8 @@ const serviceData = [
         style_image: 'Loc image',
         price: '100',
         time_alloted: '150',
+        customer_id: '4',
+        stylist_id: '1'
     }, 
     {
         category: 'Braids',
@@ -48,6 +58,8 @@ const serviceData = [
         style_image: 'single braid image',
         price: '100',
         time_alloted: '390',
+        customer_id: '3',
+        stylist_id: '1'
     }, 
     {
         category: 'Braids',
@@ -56,6 +68,8 @@ const serviceData = [
         style_image: 'box braid image',
         price: '100',
         time_alloted: '390',
+        customer_id: '2',
+        stylist_id: '1'
     }, 
     {
         category: 'Cut',
@@ -64,6 +78,8 @@ const serviceData = [
         style_image: 'Hair cut image',
         price: '50',
         time_alloted: '30',
+        customer_id: '8',
+        stylist_id: '1'
     }, 
     {
         category: 'Cut',
@@ -72,6 +88,8 @@ const serviceData = [
         style_image: 'flat iron image',
         price: '75',
         time_alloted: '150',
+        customer_id: '6',
+        stylist_id: '1'
     }, 
     {
         category: 'Cut',
@@ -80,6 +98,8 @@ const serviceData = [
         style_image: 'flat iron image',
         price: '40',
         time_alloted: '30',
+        customer_id: '7',
+        stylist_id: '1'
     }, 
     {
         category: 'Perm',
@@ -88,6 +108,8 @@ const serviceData = [
         style_image: 'perm image',
         price: '100',
         time_alloted: '120',
+        customer_id: '4',
+        stylist_id: '1'
     }, 
     {
         category: 'Color',
@@ -96,6 +118,8 @@ const serviceData = [
         style_image: 'hair color image',
         price: '100',
         time_alloted: '150',
+        customer_id: '3',
+        stylist_id: '1'
     }, 
     {
         category: 'Cut',
@@ -104,6 +128,8 @@ const serviceData = [
         style_image: 'hair conditioning image',
         price: '75',
         time_alloted: '120',
+        customer_id: '5',
+        stylist_id: '1'
     },
         
 ];

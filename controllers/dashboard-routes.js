@@ -1,9 +1,9 @@
 const router = require('express').Router();
 const {Service, Appointment, Customer, Stylist} = require('../models');
 
-// router.get('/', (req, res) => {
-//     res.render('/dashboard');
-// });
+ router.get('/', (req, res) => {
+     res.render('/dashboard');
+ });
 
 router.get('/:id', (req, res) => {
     Customer.findOne({
