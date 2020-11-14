@@ -1,25 +1,22 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
-const {Service, Stylist} = require('../models');
-const calendar=require('../public/javascript/calendar');
+const {Service, Stylist, Appointment} = require('../models');
 
 router.get('/', (req, res) => {
    Service.findAll({
-       attributes: [
-           'id',
-           'category',
-           'style',
-           'description',
-           'price',
-           'time_alloted',
-           'stylist_id'
-       ],
-       include: [
-           {
-               model: Stylist,
-               attributes: ['salon_name']
-           }
-       ]
+    attributes: ['id', 'category', 'style', 'description', 'stylist_id', 'price', 'time_alloted'],
+    include: [
+      {
+          model: Stylist,
+          attributes: ['salon_name']
+      }
+  ], 
+  include: [
+      {
+          model: Appointment,
+          attributes: ['appointment_date', 'appointment_time']
+      }
+  ]
    })
    .then(dbServiceData => {
        const services = dbServiceData.map(service => service.get({plain:true}));
@@ -49,10 +46,5 @@ router.get('/login', (req, res) => {
     
     res.render("login");
   });
-
-
-router.get('/calendar', (req, res) => {
-    res.render('calendar', {calendar});
-});
 
 module.exports = router;
