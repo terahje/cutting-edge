@@ -1,10 +1,10 @@
 const router = require('express').Router();
-const { Service, Stylist, Customer } = require('../../models');
+const { Service, Stylist, Customer, Appointment } = require('../../models');
 
 //get api/service
 router.get('/', (req, res) => {
     Service.findAll({
-        attributes: ['id', 'category', 'style', 'description', 'stylist_id', 'price', 'time_alloted','customer_id', 'stylist_id'],
+        attributes: ['id', 'category', 'style', 'description', 'stylist_id', 'price', 'time_alloted'],
         include: [
             {
                 model: Stylist,
@@ -13,8 +13,8 @@ router.get('/', (req, res) => {
         ], 
         include: [
             {
-                model: Customer,
-                attributes: ['username']
+                model: Appointment,
+                attributes: ['appointment_date', 'appointment_date_end', 'appointment_time', 'appointment_time_end',]
             }
         ]
     })
@@ -30,7 +30,18 @@ router.get('/:id', (req, res) => {
     Service.findOne({
         where: {
             id: req.params.id
-        }
+        }, 
+        attributes: ['id', 'category', 'style', 'description', 'stylist_id', 'price', 'time_alloted'],
+        include: [
+            {
+                model: Stylist,
+                attributes: ['salon_name'],
+            }, 
+                {
+                    model: Appointment,
+                    attributes: ['appointment_date', 'appointment_date_end', 'appointment_time', 'appointment_time_end',]
+                }
+        ]
     })
     .then(dbStylistData => {
         if(!dbStylistData) {
@@ -53,7 +64,7 @@ router.post('/', (req, res) => {
         description: req.body.description,
         price: req.body.price,
         time_alloted: req.body.time_alloted,
-        customer_id: req.body.customer_id,
+        // customer_id: req.body.customer_id,
         stylist_id: req.body.stylist_id
     })
     .then(dbStylistData => res.json(dbStylistData))

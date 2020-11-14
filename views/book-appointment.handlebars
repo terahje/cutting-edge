@@ -2,7 +2,7 @@
     <div class="col-12 mt-3">
         <h2 class="page-title">Book Your Appointment!</h2>         
         <div class="card-deck">
-         
+         {{customer.id}}
             <div class="card col-6">
                 <!-- bring in user from session id and the style from the book button get request -->
                 <!-- Appointment -->
@@ -14,8 +14,16 @@
                         <input name="date-book" type="date" id="date-book" class="form-control" value="{{service.style}}"/>
                     </div>
                     <div>
+                        <label for="style">Date End:</label>
+                        <input name="date-book-end" type="date" id="date-book-end" class="form-control" value="{{service.style}}"/>
+                    </div>
+                    <div>
                         <label for="style">Time:</label>
                         <input name="time-book" type="time" id="time-book" class="form-control" value="{{service.style}}"/>
+                    </div>  
+                    <div>
+                        <label for="style">Time End:</label>
+                        <input name="time-book-end" type="time" id="time-book-end" class="form-control" value="{{service.style}}"/>
                     </div>  
                     <br>
                 <div>

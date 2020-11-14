@@ -23,11 +23,11 @@ router.get('/:id', (req, res) => {
         include: [
             {
                 model: Service,
-                attributes: ['id', 'category', 'style', 'customer_id', 'stylist_id', 'price', 'time_alloted']
-            },
-            {
-                model: Appointment,
-                attributes: ['id', 'customer_id', 'appointment_date', 'appointment_time', 'stylist_id']
+                attributes: ['id', 'category', 'style', 'stylist_id', 'price', 'time_alloted'], 
+                include: {
+                    model: Appointment,
+                    attributes: ['id', 'customer_id', 'appointment_date', 'appointment_date_end', 'appointment_time', 'appointment_time_end', 'service_id']
+                }
             }
         ]
     })
