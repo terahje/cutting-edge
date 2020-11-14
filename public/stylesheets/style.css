@@ -77,3 +77,7 @@ footer{
     padding: 10px;
 
 }
+#calendar {
+    max-width: 800px;
+    margin: 0 auto;
+}
