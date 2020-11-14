@@ -32,7 +32,7 @@ router.get('/:id', (req, res) => {
     include: [
         {
             model: Appointment,
-            attributes: ['id', 'customer_id', 'appointment_date', 'appointment_time', 'service_id'], 
+            attributes: ['id', 'customer_id', 'appointment_date', 'appointment_time', 'appointment_time_end', 'service_id'], 
             include: {
               model: Service,
               attributes: ['style', 'description'],

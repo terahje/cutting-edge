@@ -14,7 +14,7 @@ router.get('/', (req, res) => {
   include: [
       {
           model: Appointment,
-          attributes: ['appointment_date', 'appointment_time']
+          attributes: ['appointment_date', 'appointment_time', 'appointment_time_end',]
       }
   ]
    })
