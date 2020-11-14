@@ -13,6 +13,8 @@
 <script src='../../node_modules/moment/min/moment.min.js'></script>
   <script src='../../node_modules/fullcalendar/dist/fullcalendar.js'></script>
 
+        <link href="https://cdn.dhtmlx.com/scheduler/edge/dhtmlxscheduler_material.css"
+            rel="stylesheet" type="text/css" charset="utf-8">
         <link rel="stylesheet" href="/stylesheets/style.css" />
      
   </head>
@@ -33,7 +35,12 @@
                 <a class="nav-link" href="/admin">Admin</a>
               </li>
               <li class="nav-item">
+               {{!-- {{#if loggedIn}} --}}
                 <a class="nav-link" href="/login">Login</a>
+              {{!-- {{else}} --}}
+                {{!-- <button id="logout" class="btn">Logout</button> --}}
+              {{!-- {{/if}} --}}
+              
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="/login">Signup</a>
@@ -62,5 +69,10 @@
         <link href='fullcalendar/main.css' rel='stylesheet' />
 <script src='fullcalendar/main.js'></script>
 
+        <script src="https://cdn.dhtmlx.com/scheduler/edge/dhtmlxscheduler.js"
+            charset="utf-8"></script>
+         
+          <script src="/javascript/logout.js"></script>
+        
   </body>
 </html>

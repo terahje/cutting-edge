@@ -40,7 +40,7 @@ router.get('/:id', (req, res) => {
 })
       .then(dbCustomerData => {
         if (!dbCustomerData) {
-          res.status(404).json({ message: 'No user found with this id' });
+          res.status(404).json({ message: 'No user found with this id! - customer get route' });
           return;
         }
         res.json(dbCustomerData);
@@ -68,8 +68,7 @@ router.post("/", (req, res) => {
     req.session.customer_Id = dbCustomerData.id;
       req.session.email = dbCustomerData.email;
       req.session.loggedIn = true;
-      console.log("hello")
-
+    
      res.json(dbCustomerData);
    });
   })
@@ -81,6 +80,8 @@ router.post("/", (req, res) => {
 
 // Login
 router.post("/login", (req, res) => {
+  console.log("Post Login is working!");
+  console.dir(req.body);
     Customer.findOne({
     where: {
       email: req.body.email
@@ -91,7 +92,7 @@ router.post("/login", (req, res) => {
       return;
     }
 
-    res.json({ user: dbUserData });
+    res.json({ user: dbCustomerData });
 
     const validPassword = dbCustomerData.checkPassword(req.body.password);
 
@@ -104,13 +105,26 @@ router.post("/login", (req, res) => {
       req.session.customerId = dbCustomerData.id;
       req.session.email = dbCustomerData.email;
       req.session.loggedIn = true;
-  
-      res.json({ customer: dbCustomerData, message: 'You are now logged in!' });
+      
+     res.json({ customer: dbCustomerData, message: 'You are now logged in!' });
     });
-  });
+  })
+  .catch(err => {
+    console.log("Our Login Error" , err);
+  })
 });
 
-
+router.post("/logout", (req, res) => {
+  if(req.session.loggedIn) {
+    req.session.destroy(() => {
+      console.dir(req.session.loggedIn);
+      res.status(204).end();
+    });
+  }
+  else {
+    res.status(404).end();
+  }
+});
 
 router.put('/:id', (req, res) => { 
     // pass in req.body instead to only update what's passed through
@@ -122,7 +136,7 @@ router.put('/:id', (req, res) => {
     })
       .then(dbCustomerData => {
         if (!dbCustomerData[0]) {
-          res.status(404).json({ message: 'No customer found with this id' });
+          res.status(404).json({ message: 'No customer found with this id - customer put route' });
           return;
         }
         res.json(dbCustomerData);
@@ -132,19 +146,6 @@ router.put('/:id', (req, res) => {
         res.status(500).json(err);
       });
   });
-
-
-
-router.post('/logout', (req, res) => {
-  if (req.session.loggedIn) {
-    req.session.destroy(() => {
-      res.status(204).end();
-    });
-  }
-  else {
-    res.status(404).end();
-  }
-});
 
 router.delete("/:id", (req, res) => {
   Customer.destroy({
