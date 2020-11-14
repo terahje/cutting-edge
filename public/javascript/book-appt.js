@@ -6,6 +6,7 @@ async function appointmentFormHandler(event) {
 //    <!-- attributes: ['id', 'customer_id','appointment_date', 'appointment_time' , 'stylist_id'], -->
 
 const appointment_date = document.querySelector('input[name="date-book"]').value;
+const appointment_date_end = document.querySelector('input[name="date-book-end"]').value;
 const appointment_time = document.querySelector('input[name="time-book"]').value;
 const appointment_time_end = document.querySelector('input[name="time-book-end').value; 
 // customer id
@@ -22,6 +23,7 @@ const response = await fetch(`/api/appointment/` , {
     method: 'POST',
     body: JSON.stringify ({
         appointment_date,
+        appointment_date_end,
         appointment_time,
         appointment_time_end,
         customer_id,

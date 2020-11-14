@@ -5,7 +5,7 @@ const { Appointment, Customer, Service } = require('../../models');
 //get api/appointment
 router.get('/',  (req, res) => {
     Appointment.findAll({
-        attributes: ['id', 'customer_id','appointment_date', 'appointment_time' , 'appointment_time_end', 'service_id'],
+        attributes: ['id', 'customer_id','appointment_date', 'appointment_date_end', 'appointment_time' , 'appointment_time_end', 'service_id'],
         include: [
             {
                 model: Customer,
@@ -30,7 +30,7 @@ router.get('/:id', (req, res) => {
         where: {
             id: req.params.id
         },
-        attributes: ['id', 'customer_id','appointment_date', 'appointment_time', 'appointment_time_end', 'service_id'],
+        attributes: ['id', 'customer_id','appointment_date', 'appointment_date_end', 'appointment_time', 'appointment_time_end', 'service_id'],
         include: [
             {
                 model: Customer,
@@ -60,6 +60,7 @@ router.post('/', (req, res) => {
     Appointment.create({
         customer_id: req.body.customer_id,
         appointment_date: req.body.appointment_date,
+        appointment_date_end: req.body.appointment_date_end,
         appointment_time: req.body.appointment_time,
         appointment_time_end: req.body.appointment_time_end,
         service_id: req.body.service_id,
