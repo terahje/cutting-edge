@@ -1,37 +1,21 @@
-  async function loginFormHandler(event) {
+  const loginFormHandler = async function(event) {
     event.preventDefault();
   
-    let handleError = function(err){
-      console.warn(err);
-      return new Response(JSON.stringify({
-        code:400,
-        message: 'network error to be fixed!'
-      }));
-    };
-
-    const email = document.querySelector("#email-login").value.trim();
-    const password = document.querySelector("#password-login").value.trim();
-    
-    if( email && password) {
-      const response = await fetch("/api/customer/login", {
-        method: "post",
-        body: JSON.stringify({
-          email,
-          password
-        }),
-        headers: { "Content-Type": "application/json" }
-      }).catch(handleError);
-      
-       if(response.ok) {
-         console.log(email);
-         document.location.replace('/');
-       } else {
-         console.log("You are not logged in!");
-         alert(response.statusText);
-       }
-      }
-    }
-    
+    const emailEl = document.querySelector("#email-login");
+    const passwordEl = document.querySelector("#password-login");
+    fetch("/api/custon/login", {
+      method: "post",
+      body: JSON.stringify({
+        email: emailEl.value,
+        password: passwordEl.value
+      }),
+      headers: { "Content-Type": "application/json" }
+    })
+      .then(function() {
+        document.location.replace("/dashboard");
+      })
+      .catch(err => console.log(err));
+  };
   
-  document.querySelector(".login-form").addEventListener("submit", loginFormHandler);
+  document.querySelector("#login-form").addEventListener("submit", loginFormHandler);
   
