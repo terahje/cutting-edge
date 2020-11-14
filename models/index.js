@@ -12,28 +12,20 @@ Service.belongsTo(Stylist, {
     foreignKey: 'stylist_id'
 });
 
-Stylist.hasMany(Customer, {
-    foreignKey: 'stylist_id'
-});
-
-Customer.hasOne(Service, {
-    foreignKey: 'customer_id'
-});
-
-Service.hasMany(Customer,  {
-    foreignKey: 'stylist_id'
-});
-
-Stylist.hasMany(Appointment, {
-    foreignKey: 'stylist_id'
-});
-
-Customer.hasMany(Appointment, {
+Customer.hasOne(Appointment, {
     foreignKey: 'customer_id'
   });
 
 Appointment.belongsTo(Customer, {
     foreignKey: 'customer_id',
+  });
+
+  Service.hasMany(Appointment, {
+      foreignKey: 'service_id'
+  });
+
+  Appointment.belongsTo(Service, {
+      foreignKey: 'service_id'
   });
 
 module.exports = {

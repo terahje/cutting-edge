@@ -26,16 +26,18 @@ router.get('/:id', (req, res) => {
         'username',
         'first_name',
         'last_name',
+        'phone',
+        'email'
     ],
     include: [
         {
             model: Appointment,
-            attributes: ['id', 'customer_id', 'appointment_date', 'appointment_time', 'stylist_id'],   
-        }, 
-        {
-            model: Service,
-            attributes: ['style', 'description'],
-        }      
+            attributes: ['id', 'customer_id', 'appointment_date', 'appointment_time', 'appointment_time_end', 'service_id'], 
+            include: {
+              model: Service,
+              attributes: ['style', 'description'],
+            }  
+        }     
     ]
 })
       .then(dbCustomerData => {

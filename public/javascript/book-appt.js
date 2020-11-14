@@ -7,19 +7,20 @@ async function appointmentFormHandler(event) {
 
 const appointment_date = document.querySelector('input[name="date-book"]').value;
 const appointment_time = document.querySelector('input[name="time-book"]').value;
-const customer_id = window.sessionStorage;
-console.log(customer_id);
+const appointment_time_end = document.querySelector('input[name="time-book-end').value; 
 //service id
-// const customer_id = window.location.toString().split('/')[
-//     window.location.toString().split('/').length -1
-// ];
+const service_id = window.location.toString().split('/')[
+    window.location.toString().split('/').length -1
+];
 
 const response = await fetch(`/api/appointment/` , {
     method: 'POST',
     body: JSON.stringify ({
         appointment_date,
         appointment_time,
-        customer_id
+        appointment_time_end,
+        // customer_id,
+        service_id
     }), 
     headers: {
         'Content-Type': 'application/json'
@@ -27,7 +28,7 @@ const response = await fetch(`/api/appointment/` , {
 });
 
 if(response.ok) {
-    document.location.replace('/dashboard/1');
+    document.location.replace('/dashboard/:id');
 } else {
     alert(response.statusText);
 }

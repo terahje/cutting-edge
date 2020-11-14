@@ -1,15 +1,19 @@
 const router = require('express').Router();
-const { Appointment, Customer } = require('../../models');
+const { Appointment, Customer, Service } = require('../../models');
 //const withAuth = require("../../utils/auth");
 
 //get api/appointment
 router.get('/',  (req, res) => {
     Appointment.findAll({
-        attributes: ['id', 'customer_id','appointment_date', 'appointment_time' , 'stylist_id'],
+        attributes: ['id', 'customer_id','appointment_date', 'appointment_time' , 'appointment_time_end', 'service_id'],
         include: [
             {
                 model: Customer,
                 attributes: ['username']
+            }, 
+            {
+                model: Service,
+                attributes: ['style']
             }
         ]
     })
@@ -23,10 +27,20 @@ router.get('/',  (req, res) => {
 //get api/appointment/1
 router.get('/:id', (req, res) => {
     Appointment.findOne({
-        attributes: {exclude: ['password']},
         where: {
             id: req.params.id
-        }
+        },
+        attributes: ['id', 'customer_id','appointment_date', 'appointment_time', 'appointment_time_end', 'service_id'],
+        include: [
+            {
+                model: Customer,
+                attributes: ['username']
+            }, 
+            {
+                model: Service,
+                attributes: ['style']
+            }
+        ]
     })
     .then(dbAppointmentData => {
         if(!dbAppointmentData) {
@@ -44,10 +58,11 @@ router.get('/:id', (req, res) => {
 //post api/appointment
 router.post('/', (req, res) => {
     Appointment.create({
-        customer_id: req.session.customer_id,
+        customer_id: req.body.customer_id,
         appointment_date: req.body.appointment_date,
         appointment_time: req.body.appointment_time,
-        // stylist_id: req.body.stylist_id,
+        appointment_time_end: req.body.appointment_time_end,
+        service_id: req.body.service_id,
     })
     .then(dbAppointmentData => res.json(dbAppointmentData))
     .catch(err => {
@@ -56,29 +71,6 @@ router.post('/', (req, res) => {
     });
 });
 
-//login route
-//http://localhost:3001/api/appointment/login
-// router.post('/login', (req, res) => {
-//     // expects {email: 'lernantino@gmail.com', password: 'password1234'}
-//     Appointment.findOne({
-//       where: {
-//         email: req.body.email
-//       }
-//     }).then(dbAppointmentData => {
-//       if (!dbAppointmentData) {
-//         res.status(400).json({ message: 'No appointment with that email address!' });
-//         return;
-//       }
-  
-//       const validPassword = dbAppointmentData.checkPassword(req.body.password);
-//       if (!validPassword) {
-//         res.status(400).json({ message: 'Incorrect password!' });
-//         return;
-//       }
-  
-//       res.json({ stylist: dbAppointmentData, message: 'You are now logged in!' });
-//     });
-//   });
 
 //put api/appointment/i
 router.put('/:id', (req, res) => {

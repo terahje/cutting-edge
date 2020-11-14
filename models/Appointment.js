@@ -28,10 +28,14 @@ Appointment.init(
         type: DataTypes.TIME,
         allowNull: false,
     },
-    stylist_id: {
+    appointment_time_end: {
+      type: DataTypes.TIME,
+      // allowNull: false,
+  },
+    service_id: {
         type: DataTypes.INTEGER,
         references: {
-          model: 'stylist',
+          model: 'service',
           key: 'id',
           },
     }

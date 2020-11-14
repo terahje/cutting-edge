@@ -1,31 +1,29 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
-const {Service, Stylist} = require('../models');
+const {Service, Stylist, Appointment} = require('../models');
 
 router.get('/', (req, res) => {
    Service.findAll({
-       attributes: [
-           'id',
-           'category',
-           'style',
-           'description',
-           'price',
-           'time_alloted',
-           'stylist_id'
-       ],
-       include: [
-           {
-               model: Stylist,
-               attributes: ['salon_name']
-           }
-       ]
+    attributes: ['id', 'category', 'style', 'description', 'stylist_id', 'price', 'time_alloted'],
+    include: [
+      {
+          model: Stylist,
+          attributes: ['salon_name']
+      }
+  ], 
+  include: [
+      {
+          model: Appointment,
+          attributes: ['appointment_date', 'appointment_time', 'appointment_time_end',]
+      }
+  ]
    })
    .then(dbServiceData => {
        const services = dbServiceData.map(service => service.get({plain:true}));
        res.render('homepage', { services });
    })
    .catch(err => {
-       conole.log(err);
+       console.log(err);
        res.status(500).json(err);
    });
 });
