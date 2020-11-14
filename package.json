@@ -4,8 +4,9 @@
   "description": "An appointment scheduler for a hair salon",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
-    "start": "node server.js"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js",
+    "seeds":  "node seeds/index.js"
   },
   "repository": {
     "type": "git",
