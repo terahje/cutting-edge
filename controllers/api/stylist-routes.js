@@ -26,7 +26,7 @@ router.get('/:id', (req, res) => {
                 attributes: ['id', 'category', 'style', 'stylist_id', 'price', 'time_alloted'], 
                 include: {
                     model: Appointment,
-                    attributes: ['id', 'customer_id', 'appointment_date', 'appointment_time', 'service_id']
+                    attributes: ['id', 'customer_id', 'appointment_date', 'appointment_time', 'appointment_time_end', 'service_id']
                 }
             }
         ]

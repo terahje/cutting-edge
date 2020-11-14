@@ -28,6 +28,10 @@ Appointment.init(
         type: DataTypes.TIME,
         allowNull: false,
     },
+    appointment_time_end: {
+      type: DataTypes.TIME,
+      // allowNull: false,
+  },
     service_id: {
         type: DataTypes.INTEGER,
         references: {
