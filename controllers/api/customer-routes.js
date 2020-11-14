@@ -100,7 +100,7 @@ router.post("/login", (req, res) => {
   }
 
   req.session.save(() => {
-    req.session.customerId = dbCustomerData.id;
+    req.session.customer_Id = dbCustomerData.id;
     req.session.username = dbCustomerData.username;
     req.session.loggedIn = true;
 
@@ -110,15 +110,19 @@ router.post("/login", (req, res) => {
 });
 
 router.post("/logout", (req, res) => {
-  if(req.session.loggedIn) {
-    req.session.destroy(() => {
-      console.dir(req.session.loggedIn);
-      res.status(204).end();
-    });
-  }
-  else {
-    res.status(404).end();
-  }
+  // if(req.session.loggedIn) {
+  //   req.session.destroy(() => {
+  //     res.status(204).end();
+  //   });
+  // }
+  // else {
+  //   res.status(404).end();
+  // }
+
+  req.session.destroy();
+
+  res.redirect("/");
+
 });
 
 router.put('/:id', (req, res) => { 
