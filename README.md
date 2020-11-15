@@ -6,6 +6,7 @@
 Description
 --
 >An appointment scheduler for a hair salon using node js, SQL and material design<br>
+>This is the completion of a group project assignment using the tecnologies listed below.
 
 ### Table of Contents
 [Installation](#install)<br>
@@ -16,28 +17,34 @@ Description
 
 :memo: [Installation Instructions](install)
 ========
->run from command terminal via node js and the command node server.js
-
+>run from command terminal via node js and the command line
 
 :computer: [Usage Information](usage)
 ===
->use for scheduling appointments for a small business, target business is a hair salon
->example screenshots
+>use for scheduling appointments for a small business, target business is a hair salon<br>
+>Example screen shots:
 
+![](cuttingEdge.gif)
 
+<br>
 :incoming_envelope: [Contribution Guidelines](contribute)
 ==
->use the issues located on the repository
+>use the issues located on the repository.  <br>
 
-:notebook: [Testing instructions](test)
+
+:notebook: [Technologies used in development and testing](test)
 ==
->see usage instructions
+>We used the following technologies to build this scheduling app:
+>>NodeJs, Sequelize, Handlebars, Javascript, Express
+>>new technologies:  Nodemon and Sweet Alert for the popups
+>>we attempted to add a calendar feature into the app, but had difficulties implementing calendarlibraries in the time we had allotted to complete this project.
 
 :question: [Questions](quest)
 ==
 >:email:Email: jd9913@gmail.com , aklobby@gmail.com, terahjequinn@gmail.com<br>
 >GitHub Username: [jd9913](https://github.com/jd9913), [terahje](https://github.com/terahje), [aksmith5239](https://github.com/aksmith5239)<br>
 >:link: Repository Link: https://github.com/terahje/cutting-edge<br>
+>:link: Heroku Link--for live deployment: https://the-cutting-edge-20.herokuapp.com/ <br>
 
 [Licenses](#license)
 ==
