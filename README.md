@@ -16,11 +16,14 @@ Description
 
 :memo: [Installation Instructions](install)
 ========
->run from command terminal via node js
+>run from command terminal via node js and the command node server.js
+
 
 :computer: [Usage Information](usage)
 ===
 >use for scheduling appointments for a small business, target business is a hair salon
+>example screenshots
+
 
 :incoming_envelope: [Contribution Guidelines](contribute)
 ==
