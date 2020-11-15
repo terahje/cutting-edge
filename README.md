@@ -35,10 +35,10 @@ Description
 
 :notebook: [Technologies used in development and testing](test)
 =======
->We used the following technologies to build this scheduling app:
->>NodeJs, Sequelize, Handlebars, Javascript, Express
->>new technologies:  Nodemon and Sweet Alert for the popups
->>we attempted to add a calendar feature into the app, but had difficulties implementing calendar libraries in the time we had allotted to complete this project.
+>We used the following technologies to build this scheduling app:<br>
+>>NodeJs, Sequelize, Handlebars, Javascript, Express<br>
+>>new technologies:  Nodemon and Sweet Alert for the popups<br>
+>>we attempted to add a calendar feature into the app, but had difficulties implementing calendar libraries in the time we had allotted to complete this project.<br>
 
 :question: [Questions](quest)
 =======
@@ -51,7 +51,7 @@ Description
 =======
 >This application is covered under the following license(s): <br>
 >><br>
->>click [here](https://choosealicense.com/licenses/) to read about these licenses.
+>>click [here](https://choosealicense.com/licenses/) to read about these licenses.<br>
 
 Footer
 -----
