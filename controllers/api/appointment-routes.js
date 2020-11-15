@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { Appointment, Customer, Service } = require('../../models');
-//const withAuth = require("../../utils/auth");
+const withAuth = require("../../utils/auth");
 
 //get api/appointment
 router.get('/',  (req, res) => {
@@ -56,7 +56,7 @@ router.get('/:id', (req, res) => {
 });
 
 //post api/appointment
-router.post('/', (req, res) => {
+router.post('/',  withAuth, (req, res) => {
     Appointment.create({
         customer_id: req.body.customer_id,
         appointment_date: req.body.appointment_date,
@@ -74,7 +74,7 @@ router.post('/', (req, res) => {
 
 
 //put api/appointment/i
-router.put('/:id', (req, res) => {
+router.put('/:id', withAuth, (req, res) => {
     Appointment.update(req.body, {
         individualHooks: true,
         where: {
@@ -95,7 +95,7 @@ router.put('/:id', (req, res) => {
 });
 
 //delete api/appointment/i
-router.delete('/:id', (req, res) => {
+router.delete('/:id', withAuth, (req, res) => {
     Appointment.destroy({
         where: {
             id: req.params.id

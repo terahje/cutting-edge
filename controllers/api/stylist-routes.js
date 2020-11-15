@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { Stylist, Service, Appointment } = require('../../models');
+const withAuth = require("../../utils/auth");
 
 //get api/stylists
 router.get('/', (req, res) => {
@@ -45,7 +46,7 @@ router.get('/:id', (req, res) => {
 });
 
 //post api/stylists
-router.post('/', (req, res) => {
+router.post('/', withAuth, (req, res) => {
     Stylist.create({
         username: req.body.username,
         first_name: req.body.first_name,
@@ -63,7 +64,7 @@ router.post('/', (req, res) => {
 
 //login route
 //http://localhost:3001/api/stylists/login
-router.post('/login', (req, res) => {
+router.post('/login', withAuth, (req, res) => {
     // expects {email: 'lernantino@gmail.com', password: 'password1234'}
     Stylist.findOne({
       where: {
@@ -86,7 +87,7 @@ router.post('/login', (req, res) => {
   });
 
 //put api/stylists/i
-router.put('/:id', (req, res) => {
+router.put('/:id', withAuth, (req, res) => {
     Stylist.update(req.body, {
         individualHooks: true,
         where: {
@@ -107,7 +108,7 @@ router.put('/:id', (req, res) => {
 });
 
 //delete api/stylists/i
-router.delete('/:id', (req, res) => {
+router.delete('/:id', withAuth, (req, res) => {
     Stylist.destroy({
         where: {
             id: req.params.id

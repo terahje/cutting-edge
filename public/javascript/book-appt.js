@@ -35,7 +35,7 @@ const response = await fetch(`/api/appointment/` , {
 });
 
 if(response.ok) {
-    document.location.replace('/dashboard/:id');
+    document.location.replace('/dashboard');
 } else {
     alert(response.statusText);
 }

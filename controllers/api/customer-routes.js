@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const { Appointment ,Customer, Service } = require("../../models");
-//const withAuth = require("../../utils/auth");
+const withAuth = require("../../utils/auth");
 
 //get api/customer
 router.get('/', (req, res) => {
@@ -54,7 +54,7 @@ router.get('/:id', (req, res) => {
   });
 
   // POST Customer
-router.post("/", (req, res) => {
+router.post("/",  withAuth, (req, res) => {
     Customer.create({
         first_name: req.body.first_name,
         last_name: req.body.last_name,
@@ -81,7 +81,7 @@ router.post("/", (req, res) => {
 });
 
 // Login
-router.post("/login", (req, res) => {
+router.post("/login", withAuth, (req, res) => {
   Customer.findOne({
   where: {
     email: req.body.email
@@ -109,7 +109,7 @@ router.post("/login", (req, res) => {
 });
 });
 
-router.post("/logout", (req, res) => {
+router.post("/logout",  withAuth, (req, res) => {
   // if(req.session.loggedIn) {
   //   req.session.destroy(() => {
   //     res.status(204).end();
@@ -125,7 +125,7 @@ router.post("/logout", (req, res) => {
 
 });
 
-router.put('/:id', (req, res) => { 
+router.put('/:id',  withAuth, (req, res) => { 
     // pass in req.body instead to only update what's passed through
     Customer.update(req.body, {
       individualHooks: true,
@@ -146,7 +146,7 @@ router.put('/:id', (req, res) => {
       });
   });
 
-router.delete("/:id", (req, res) => {
+router.delete("/:id",  withAuth, (req, res) => {
   Customer.destroy({
     where: {
       id: req.params.id

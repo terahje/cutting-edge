@@ -1,11 +1,8 @@
 const router = require('express').Router();
 const {Service, Appointment, Customer, Stylist} = require('../models');
+const withAuth = require('../utils/auth');
 
  router.get('/', (req, res) => {
-     res.render('/dashboard');
- });
-
-router.get('/:id', (req, res) => {
     Customer.findOne({
         where: {
             // id: req.params.id
@@ -36,7 +33,7 @@ router.get('/:id', (req, res) => {
   })
     .then(dbCustomerData => {
         if(!dbCustomerData) {
-            res.status(404).json({message: "We could not find a customer with that id"});
+            res.status(404).alert({message: "We could not find a customer with that id"});
             return;
         }
         const customer = dbCustomerData.get({plain:true});
