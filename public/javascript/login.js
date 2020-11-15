@@ -23,11 +23,19 @@
       }).catch(handleError);
       
        if(response.ok) {
-         console.log(email);
-         document.location.replace('/');
+        Swal.fire({
+          title: "You are logged in!",
+          confirmButtonText: "OK",
+          confirmButtonColor: "#5c946e", 
+      }).then(function() {
+          location.href ='/';
+      })
        } else {
-         console.log("You are not logged in!");
-         alert(response.statusText);
+        Swal.fire({
+          title: "Sorry, we could not find your username or password!",
+          confirmButtonText: "OK",
+          confirmButtonColor: "#1c0425", 
+      });
        }
       }
     }

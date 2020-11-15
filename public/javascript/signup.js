@@ -22,11 +22,20 @@ const signupFormHandler = async function(event) {
         headers: { 'Content-Type': 'application/json' }
       });
       if(response.ok) {
-        console.log("success");
-        document.location.replace('/');
+        Swal.fire({
+          title: "Thank you for signing up. You are logged in!.",
+          confirmButtonText: "OK",
+          confirmButtonColor: "#5c946e", 
+      }).then(function() {
+          location.href ='/';
+        })
       }
       else {
-        alert(response.statusText);
+        Swal.fire({
+          title: "Something went wrong! Please try again.",
+          confirmButtonText: "OK",
+          confirmButtonColor: "#1c0425", 
+      });
       }
      }
    }
