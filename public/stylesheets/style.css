@@ -61,6 +61,27 @@ a {
 a:hover {
     color: var(--light);
 }
+
+nav button{
+    text-decoration: none;
+    color: var(--lightgray);
+    font-size: 1.5em;
+    font-weight:bold;
+    border: none;
+    background: var(--primary);
+
+}
+
+nav button:hover{
+    color: var(--secondaccent);
+    border: none;
+}
+h5 a {
+    color: var(--gray);
+}
+h5 a:hover{
+    color: var(--tertiary);
+}
 .page-title {
     color: var(--tertiary);
     font-size:2em;

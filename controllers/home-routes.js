@@ -3,6 +3,11 @@ const sequelize = require('../config/connection');
 const {Service, Stylist, Appointment} = require('../models');
 
 router.get('/', (req, res) => {
+  if (!req.session.loggedIn) {
+    res.redirect('/login');
+  } else {
+
+ 
    Service.findAll({
     attributes: ['id', 'category', 'style', 'description', 'stylist_id', 'price', 'time_alloted'],
     include: [
@@ -26,8 +31,9 @@ router.get('/', (req, res) => {
        console.log(err);
        res.status(500).json(err);
    });
-});
+}
 
+});
 
 router.get('/login', (req, res) => {
     if (req.session.loggedIn) {

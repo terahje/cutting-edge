@@ -1,6 +1,5 @@
-<div class="row">
-    <div class="col-12 mt-3">
-        <h2 class="page-title">Add New Service</h2>
+        <h2 class="page-title">Add New Service  <button id='logout-stylist' class='btn btn-primary float-right'>logout admin</button></h2>
+       
         <form class="new-service-form">
             <div>
                 <div class="row">
@@ -69,7 +68,7 @@
                             <h5>{{service.style}}</h5>
                         </div>
                         Description: {{service.description}} <br>
-                        This style takes: {{service.time_alloted}} <br>
+                        This style takes: {{service.time_alloted}} minutes<br>
                         ${{service.price}}
                     </div>
                     <div class="col-2 d-flex"><button class="btn justify-content-center align-self-center"><a href="/admin/edit/{{service.id}}">Edit</a></div>
@@ -79,5 +78,5 @@
        
         </div> <!--end card-deck -->
 <script src="/javascript/new-service.js"></script>
-    </div> <!--end col -->
-</div> <!--end row -->
+<script src="/javascript/admin-logout.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
