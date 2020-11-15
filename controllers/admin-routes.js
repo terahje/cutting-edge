@@ -28,6 +28,18 @@ router.get('/', (req, res) => {
     });
  });
 
+ router.get('/login', (req,res) => {
+     if(req.session.loggedIn) {
+         res.redirect('/admin');
+         return;
+     }
+     res.render('admin-login');
+ });
+
+ router.get('/create-stylist', (req, res) => {
+     res.render('create-stylist')
+ });
+
  router.get('/edit/:id', (req, res) => {
     Service.findOne({
         where: {
