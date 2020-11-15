@@ -9,11 +9,11 @@ router.get('/',  (req, res) => {
         include: [
             {
                 model: Customer,
-                attributes: ['username']
+                attributes: ['username', 'customer_id']
             }, 
             {
                 model: Service,
-                attributes: ['style']
+                attributes: ['style', 'service_id']
             }
         ]
     })
@@ -34,11 +34,11 @@ router.get('/:id', (req, res) => {
         include: [
             {
                 model: Customer,
-                attributes: ['username']
+                attributes: ['username', 'customer_id']
             }, 
             {
                 model: Service,
-                attributes: ['style']
+                attributes: ['style', 'service_id']
             }
         ]
     })
