@@ -28,6 +28,12 @@ Appointment.belongsTo(Customer, {
       foreignKey: 'service_id'
   });
 
+  Service.belongsToMany(Appointment, {
+      through: Appointment,
+      as: 'Service Selected',
+      foreignKey: 'customer_id'
+  });
+
 module.exports = {
     Customer,
     Appointment,
