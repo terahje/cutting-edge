@@ -7,13 +7,13 @@ const {Service, Appointment, Customer, Stylist} = require('../models');
 
 router.get('/:id', (req, res) => {
     Customer.findOne({
-        where: {
-            // id: req.params.id
-            customer_id: req.session.customer_id
-        },
+        // where: {
+        //     // id: req.params.id
+        //     customer_id: req.session.customer_id
+        // },
         attributes: { exclude: ['password'] },
         where: {
-          id: req.params.id
+          id: req.params.id,
       },
       attributes: [
           'id',
@@ -29,7 +29,7 @@ router.get('/:id', (req, res) => {
               attributes: ['id', 'customer_id', 'appointment_date', 'appointment_date_end', 'appointment_time', 'appointment_time_end', 'service_id'], 
               include: {
                 model: Service,
-                attributes: ['style', 'description'],
+                attributes: ['style', 'description', 'price'],
               }  
           }     
       ]
@@ -50,5 +50,6 @@ router.get('/:id', (req, res) => {
     });
 
 });
+
 
 module.exports = router;

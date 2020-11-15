@@ -6,23 +6,24 @@
                 <div class="col">
                 <div class="card">
                     <div class="card-header">
-                        <h2 class="page-title">Your Booking Was Successful!</h2>
-                        {{customer.username}}
-                      <h3>You are booked for:{{style}}<br></h3>
-                      <h4>On: {{appointment.appointment_date}} at: {{appointment.appointment_time}}</h4>
+                        
+                        <h2 class="page-title">{{customer.username}} Your Booking Was Successful!</h2>
+                        
+                      <h3>You are booked for: {{customer.appointment.service.style}}<br></h3>
+                      <h4>On: {{customer.appointment.appointment_date}} at: {{customer.appointment.appointment_time}}</h4>
                     </div>
                     <div class="card-body">
-                        <div class="calendar" id="calendar">
+                        {{!-- <div class="calendar" id="calendar">
                             <img src="/images/calendar.png">
-                        </div>
-                        <h5>Description of Service: {{service.description}}</h5>
-                        <h5>Price: {{service.price}}</h5>
-                        <h5>Your stylist will be: 
+                        </div> --}}
+                        <h5>Description of Service: {{customer.appointment.service.description}}</h5>
+                        <h5>Price: {{customer.appointment.service.price}}</h5>
                         </h5>
                     </div> 
                     <div class="card-footer">
                         <p class="text-center">Thank you for booking with The Cutting Edge</p>
-                    </div>  
+                    </div> 
+                   
                 </div>
                 <div> 
                 </div>
