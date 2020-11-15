@@ -26,7 +26,8 @@ Description
 
 ![](cuttingEdge.gif)
 
-<br>
+<br><br>
+
 :incoming_envelope: [Contribution Guidelines](contribute)
 =========
 >use the issues located on the repository.  <br>
