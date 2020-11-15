@@ -22,9 +22,19 @@ async function createFormHandler(event) {
             headers: {'Content-Type': 'application/json'}
         });
         if(response.ok){
-            document.location.replace('/login');
+            Swal.fire({
+                title: "Thank you for signing up. You are logged in!",
+                confirmButtonText: "OK",
+                confirmButtonColor: "#5c946e", 
+            }).then(function() {
+                location.href ='/admin';
+              })
           } else {
-             alert(response.statusText); 
+            Swal.fire({
+                title: "Something went wrong! Please try again.",
+                confirmButtonText: "OK",
+                confirmButtonColor: "#1c0425", 
+            });
           } 
         
     }

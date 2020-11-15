@@ -12,7 +12,11 @@ async function logout() {
             location.href ='/admin/login';
         })
     } else {
-        alert(response.statusText);
+        Swal.fire({
+            title: "Something went wrong! Please try again.",
+            confirmButtonText: "OK",
+            confirmButtonColor: "#1c0425", 
+        });
     }
 }
 document.querySelector('#logout-stylist').addEventListener('click', logout);

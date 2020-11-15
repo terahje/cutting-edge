@@ -15,14 +15,18 @@ async function loginFormHandler(event) {
     });
       if(response.ok){
         Swal.fire({
-            title: "You are logged in!.",
+            title: "You are logged in!",
             confirmButtonText: "OK",
             confirmButtonColor: "#5c946e", 
         }).then(function() {
             location.href ='/admin';
         })
       } else {
-         alert(response.statusText); 
+        Swal.fire({
+            title: "Sorry, we could not find your username or password!",
+            confirmButtonText: "OK",
+            confirmButtonColor: "#1c0425", 
+        });
       }
   }
 }

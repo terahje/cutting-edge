@@ -6,9 +6,19 @@ async function logout() {
     });
   
     if (response.ok) {
-      document.location.replace('/');
+      Swal.fire({
+        title: "Thank you for visiting the Cutting Edge. You are logged out!.",
+        confirmButtonText: "OK",
+        confirmButtonColor: "#5c946e", 
+    }).then(function() {
+        location.href ='/login';
+      })
     } else {
-      alert("You cannot log out from Hotel California!", response.statusText);
+      Swal.fire({
+        title: "Something went wrong! Please try again.",
+        confirmButtonText: "OK",
+        confirmButtonColor: "#1c0425", 
+    });
     }
   }
   
