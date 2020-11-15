@@ -67,7 +67,7 @@ router.post("/", (req, res) => {
   
   .then(dbCustomerData => {
     req.session.save(() => {
-    req.session.customer_Id = dbCustomerData.id;
+    req.session.customer_id = dbCustomerData.id;
       req.session.email = dbCustomerData.email;
       req.session.loggedIn = true;
     
@@ -100,7 +100,7 @@ router.post("/login", (req, res) => {
   }
 
   req.session.save(() => {
-    req.session.customer_Id = dbCustomerData.id;
+    req.session.customer_id = dbCustomerData.id;
     req.session.username = dbCustomerData.username;
     req.session.loggedIn = true;
 

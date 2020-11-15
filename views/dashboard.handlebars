@@ -10,7 +10,7 @@
                         <h2 class="page-title">{{customer.username}} Your Booking Was Successful!</h2>
                         
                       <h3>You are booked for: {{customer.appointment.service.style}}<br></h3>
-                      <h4>On: {{customer.appointment.appointment_date}} at: {{customer.appointment.appointment_time}}</h4>
+                      <h4>On: {{format_date customer.appointment.appointment_date}} at: {{fcustomer.appointment.appointment_time}}</h4>
                     </div>
                     <div class="card-body">
                         {{!-- <div class="calendar" id="calendar">
