@@ -3,4 +3,5 @@ node-modules
 .env
 node_modules
 
+
 public/assets/fullcalendar-5.3.2/*

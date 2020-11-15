@@ -4,9 +4,8 @@
   "description": "An appointment scheduler for a hair salon",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js",
-    "seeds": "node seeds/index.js"
+    "test": "jest",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -35,7 +34,6 @@
     "mysql2": "^2.2.5",
     "nodemon": "^2.0.6",
     "sequelize": "^6.3.5",
-    "sqlite3": "^5.0.0",
-    "sweetalert2": "^10.10.0"
+    "sqlite3": "^5.0.0"
   }
 }
