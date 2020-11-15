@@ -1,0 +1,57 @@
+         <div>
+            <h2 class="page-title">Edit Service
+            <button class="btn float-right"><a href="/admin">Return to Services</a></button></h2>
+         </div>
+       
+        <form class="edit-service-form">
+            <div>
+                <div class="row">
+                <div class="col-6">
+                <div>
+                    <label for="style">style name:</label>
+                    <input name="style-edit" type="text" id="style-edit" class="form-control" value="{{service.style}}"/>
+                </div>
+                <div>
+                    <label for="category">category: {{service.category}}</label>
+                    <select type="text" id="category" class="form-control" name="category-edit">
+                        <option value="">Choose a Category</option>
+                        <option value="Braids">Braids</option>
+                        <option value="Cuts">Cuts</option>
+                        <option value="Color">Color</option>
+                        <option value="Perms">Perms</option>
+                    </select>
+                </div>
+                
+                <div>
+                    <label for="time_alloted">time needed for style:</label>
+                    <input type="text" id="time-edit" name="time-edit" class="form-control" value="{{service.time_alloted}}"/>
+                </div>
+                
+                </div>
+                <div class="col-6">
+                <div>
+                    <label for="description">description:</label>
+                    <textarea class="form-control" name="description-edit">{{service.description}}</textarea>
+                </div>
+                
+                <div>
+                    <label for="price">price of service:</label>
+                    <input type="decimal" name="price-edit" id="price-edit" class="form-control" value="{{service.price}}"/>
+                </div>
+                </div>
+                 </div>
+                <br>
+                <div>
+                    <button class="btn btn-danger float-right delete-service" type="button">Delete Service</button> &nbsp;
+                    <button class="btn btn-primary float-left edit-service" type="submit">Update Service</button>
+                   
+                </div>
+            </div>
+          
+        </form>
+            <script src="/javascript/edit-services.js"></script>
+            <script src="/javascript/delete-services.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>  
+            </div> <!--end card -->
+       
+        </div> <!--end card-deck -->

@@ -1,0 +1,31 @@
+
+        <h2 class="page-title"> Choose Your Style! Book Your Appointment!  <button id='logout' class='btn btn-primary float-right'>logout</button></h2>         
+        <div class="card-deck">
+         
+            <div class="card">
+                {{#each services}}
+                <div class="row border border-light">
+                    <div class="col-3 d-flex justify-content-center align-middle">
+                        <figure class="figure">
+                            <img class="img-thumbnail " style="max-width:100px; max-height:100px" src="/images/{{category}}.jpg">       
+                        <figcaption class="figure-caption">
+                            Category: {{category}}
+                        </figcaption>
+                        </figure>
+                      </div>  
+                    <div class="col-7">
+                        <div class="card-header">
+                            <h5>{{style}}</h5>
+                        </div>
+                        Description: {{description}} <br>
+                        This style takes: {{time_alloted}} minutes <br>
+                        ${{price}}
+                    </div>
+                    <div class="col-2 d-flex"><button class="btn justify-content-center align-self-center book-appt"><a href="/admin/book/{{id}}">Book Now</a></div>
+                </div>
+                 {{/each}}
+            </div> <!--end card -->
+       
+        </div> <!--end card-deck -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+   

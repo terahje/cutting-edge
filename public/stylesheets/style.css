@@ -1,0 +1,100 @@
+/*color palatte */
+:root {
+    --primary: #1c0425;
+    --accent: #f7ce5b;
+    --secondaccent:#5c946e;
+    --tertiary: #0353a4;
+    --secondary: #114b5f;
+    --light: #ffff ;
+    --gray: #6f7d8c;
+    --lightgray: #AFB7C0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+    background-color: var(--primary);
+    padding: 5px;
+    display: flex;
+    
+}
+header h1 {
+    color: var(--light);
+    margin-left: 5px;
+    font-size: 1.5em;
+    
+}
+
+.btn {
+    background-color: var(--secondary);
+    color: var(--accent);
+}
+.btn button:hover{
+    color: var(--tertiary);
+}
+
+h1 a{
+    color: var(--lightgray);
+}
+h1 a:hover{
+    color: var(--accent);
+}
+
+nav a{
+    text-decoration: none;
+    color: var(--lightgray);
+    font-size: 1.5em;
+    font-weight:bold;
+}
+
+nav a:hover{
+    color: var(--secondaccent);
+}
+
+a {
+    color: var(--accent); 
+}
+a:hover {
+    color: var(--light);
+}
+
+nav button{
+    text-decoration: none;
+    color: var(--lightgray);
+    font-size: 1.5em;
+    font-weight:bold;
+    border: none;
+    background: var(--primary);
+
+}
+
+nav button:hover{
+    color: var(--secondaccent);
+    border: none;
+}
+h5 a {
+    color: var(--gray);
+}
+h5 a:hover{
+    color: var(--tertiary);
+}
+.page-title {
+    color: var(--tertiary);
+    font-size:2em;
+    font-style: italic;
+    font-weight: bold;
+
+}
+footer{
+    border-top: .5px solid var(--lightgray);
+    font-size: .75em;
+    font-weight:lighter;
+    color: var(--lightgray);
+    text-align:center;
+    padding: 10px;
+
+}
