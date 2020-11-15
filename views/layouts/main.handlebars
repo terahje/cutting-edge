@@ -24,10 +24,7 @@
               <li class="nav-item">
                 <a class="nav-link" href="/dashboard">Dashboard</a>
               </li>
-              <!--if the stylist is logged in, this admin button will show else it wont-->
-              <li class="nav-item">  
-                <a class="nav-link" href="/admin">Admin</a>
-              </li>
+             
               <li class="nav-item">
                {{!-- {{#if session.loggedIn}}
                 <button id="logout" class="btn">Logout</button>
@@ -51,8 +48,8 @@
             {{{ body }}}
         </div>
     </main>
-    <footer>
-        <h5>Style is yours for the taking! You are on the Cutting Edge</h5>
+    <footer class="admin-link">
+        <h5>Style is yours for the taking! You are on the Cutting Edge   <a class='float-right admin-link' href='/admin/login'>admin</a></h5>
     </footer> 
   
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

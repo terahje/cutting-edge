@@ -14,7 +14,13 @@ async function loginFormHandler(event) {
         headers: {'Content-Type': 'application/json'}
     });
       if(response.ok){
-        document.location.replace('/admin');
+        Swal.fire({
+            title: "You are logged in!.",
+            confirmButtonText: "OK",
+            confirmButtonColor: "#5c946e", 
+        }).then(function() {
+            location.href ='/admin';
+        })
       } else {
          alert(response.statusText); 
       }

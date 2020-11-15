@@ -4,7 +4,13 @@ async function logout() {
         headers: { 'Content-Type': 'application/json'}
     });
     if(response.ok) {
-        document.location.replace('/admin/login')
+        Swal.fire({
+            title: "You are logging out!.",
+            confirmButtonText: "OK",
+            confirmButtonColor: "#5c946e", 
+        }).then(function() {
+            location.href ='/admin/login';
+        })
     } else {
         alert(response.statusText);
     }

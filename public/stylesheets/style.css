@@ -61,6 +61,12 @@ a {
 a:hover {
     color: var(--light);
 }
+h5 a {
+    color: var(--gray);
+}
+h5 a:hover{
+    color: var(--tertiary);
+}
 .page-title {
     color: var(--tertiary);
     font-size:2em;
