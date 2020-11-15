@@ -1,20 +1,20 @@
 const router = require('express').Router();
 const {Service, Appointment, Customer, Stylist} = require('../models');
 
- router.get('/', (req, res) => {
-     res.render('/dashboard');
- });
+//  router.get('/', (req, res) => {
+//      res.render('/dashboard');
+//  });
 
 router.get('/:id', (req, res) => {
     Customer.findOne({
-        // where: {
-        //     // id: req.params.id
-        //     customer_id: req.session.customer_id
-        // },
-        attributes: { exclude: ['password'] },
         where: {
-          id: req.params.id,
-      },
+            // id: req.params.id
+            id: req.session.customer_id,  
+        },
+        attributes: { exclude: ['password'] },
+    //     where: {
+    //       id: req.params.id,
+    //   },
       attributes: [
           'id',
           'username',
@@ -40,6 +40,7 @@ router.get('/:id', (req, res) => {
             return;
         }
         const customer = dbCustomerData.get({plain:true});
+        console.log(req.session.customer_id);
         res.render('dashboard', {
             customer,
             loggedIn: true});

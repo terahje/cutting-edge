@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
-const {Service, Stylist, Appointment} = require('../models');
+const {Service, Stylist, Appointment, Customer} = require('../models');
 
 router.get('/', (req, res) => {
   if (!req.session.loggedIn) {
@@ -19,12 +19,18 @@ router.get('/', (req, res) => {
   include: [
       {
           model: Appointment,
-          attributes: ['appointment_date', 'appointment_date_end', 'appointment_time', 'appointment_time_end',]
+          attributes: ['appointment_date', 'appointment_date_end', 'appointment_time', 'appointment_time_end',], 
+          include: {
+            model: Customer,
+            attributes: ['id', 'username']
+        }
+          
       }
   ]
    })
    .then(dbServiceData => {
        const services = dbServiceData.map(service => service.get({plain:true}));
+       console.log({services})
        res.render('homepage', { services });
    })
    .catch(err => {
