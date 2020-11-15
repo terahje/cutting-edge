@@ -24,6 +24,7 @@
       
        if(response.ok) {
          console.log(email);
+         console.log(customer_id);
          document.location.replace('/');
        } else {
          console.log("You are not logged in!");
