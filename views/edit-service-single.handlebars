@@ -1,12 +1,14 @@
-         <div>
+         
+         <div class="row float-right"><button class="btn float-right"> <a href="/admin">Return to Services</a></button></div>
+           <div> 
             <h2 class="page-title">Edit Service
-            <button class="btn float-right"><a href="/admin">Return to Services</a></button></h2>
+            </h2>
          </div>
        
         <form class="edit-service-form">
             <div>
                 <div class="row">
-                <div class="col-6">
+                <div class="col-md-6 col-sm-12">
                 <div>
                     <label for="style">style name:</label>
                     <input name="style-edit" type="text" id="style-edit" class="form-control" value="{{service.style}}"/>
@@ -28,7 +30,7 @@
                 </div>
                 
                 </div>
-                <div class="col-6">
+                <div class="col-md-6 col-sm-12">
                 <div>
                     <label for="description">description:</label>
                     <textarea class="form-control" name="description-edit">{{service.description}}</textarea>
