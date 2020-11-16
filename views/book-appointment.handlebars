@@ -1,11 +1,16 @@
-        <h2 class="page-title">Book Your Appointment!</h2>         
+    {{!-- <script>const customer_id = "{{customer}}"; 
+        console.log(customer_id);
+       
+    </script> --}}
+    
+    <h2 class="page-title">Book Your Appointment!</h2>         
         <div class="card-deck">
-         {{customer.id}}
             <div class="card col-6">
                 <!-- bring in user from session id and the style from the book button get request -->
                 <!-- Appointment -->
                <!-- attributes: ['id', 'customer_id','appointment_date', 'appointment_time' , 'stylist_id'], -->
                <form class="book-appt-form">
+                   <h1 >{{service.appointment.customer.id}}</h1>
                 <div>
                     <div>
                         <label for="style">Date:</label>
@@ -22,7 +27,9 @@
                     <div>
                         <label for="style">Time End:</label>
                         <input name="time-book-end" type="time" id="time-book-end" class="form-control" value="{{service.style}}"/>
+
                     </div>  
+                    <input name="customer_id" type="hidden" id="customer_id" class="" value="{{customer}}"/>
                     <br>
                 <div>
                     <button class="btn btn-primary float-left book-appt" type="submit">Book Appointment</button>
