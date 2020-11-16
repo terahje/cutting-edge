@@ -1,9 +1,10 @@
-        <h2 class="page-title">Add New Service  <button id='logout-stylist' class='btn logout float-right'>logout admin</button></h2>
+        <div class="row float-right"> <button id='logout-stylist' class='btn logout float-right'>logout admin</button></div>
+        <h2 class="page-title">Add New Service </h2>
        
         <form class="new-service-form">
             <div>
                 <div class="row">
-                <div class="col-6">
+                <div class="col-md-6 col-sm-12">
                 <div>
                     <label for="style">style name:</label>
                     <input name="style-new" type="text" id="style-new" class="form-control" value="{{service.style}}"/>
@@ -26,7 +27,7 @@
                 </div>
                 
                 </div>
-                <div class="col-6">
+                <div class="col-md-6 col-sm-12">
                 <div>
                     <label for="description">description:</label>
                     <textarea class="form-control" name="description-new">{{service.description}}</textarea>
@@ -41,7 +42,7 @@
                 <br>
                 <div>
                     {{!-- <button class="btn btn-danger float-right delete-service" type="button">Delete Service</button> &nbsp; --}}
-                    <button class="btn btn-primary float-left new-service" type="submit">Create New Service</button>
+                    <button class="col-2-md col-xs-12 btn btn-primary float-left new-service" type="submit">Create New Service</button>
                    
                 </div>
             </div>
@@ -58,14 +59,14 @@
                 <div class="row border border-light">
                     <div class="col-3 d-flex justify-content-center align-middle">
                         <figure class="figure">
-                            <img class="img-thumbnail " style="max-width:100px; max-height:100px" src="/images/{{service.category}}.jpg">  
+                            <img class="img-thumbnail " style="max-width:100px; max-height:100px" src="https://the-cutting-edge-20.herokuapp.com/public/images/{{service.category}}.jpg">  
                              {{service.appointment.customer.id}}  
                         <figcaption class="figure-caption">
                             Category: {{service.category}}
                         </figcaption>
                         </figure>
                       </div>  
-                    <div class="col-7">
+                    <div class="col-sm-12 col-md-7"">
                         <div class="card-header">
                             <h5>{{service.style}}</h5>
                         </div>
@@ -73,7 +74,7 @@
                         This style takes: {{service.time_alloted}} minutes<br>
                         ${{service.price}}
                     </div>
-                    <div class="col-2 d-flex"><button class="btn justify-content-center align-self-center"><a href="/admin/edit/{{service.id}}">Edit</a></div>
+                    <div class="col-2-md col-xs-12"><button class="btn justify-content-center align-self-center"><a href="/admin/edit/{{service.id}}">Edit</a></div>
                 </div>
                  {{/each}}
             </div> <!--end card -->

@@ -18,7 +18,6 @@ Description
 :memo: [Installation Instructions](install)
 ========
 >run from command terminal via node js and the command line
->use google chrome if using localhost
 
 :computer: [Usage Information](usage)
 =======
@@ -58,5 +57,3 @@ Footer
 -----
 
 Made with love :gift_heart: by jd9913, terahje, aksmith5239.<br>:copyright: 2020
-
-        
