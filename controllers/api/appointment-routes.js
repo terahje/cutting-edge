@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Appointment, Customer, Service } = require('../../models');
+const { Appointment, Customer, Service, Stylist } = require('../../models');
 //const withAuth = require("../../utils/auth");
 
 //get api/appointment
@@ -13,7 +13,7 @@ router.get('/',  (req, res) => {
             }, 
             {
                 model: Service,
-                attributes: ['style', 'id']
+                attributes: ['style', 'id'],
             }
         ]
     })

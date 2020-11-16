@@ -1,28 +1,27 @@
-    <div>
-            {{!-- <h2 class="page-title">My Upcoming Appointment</h2> --}}  
-         </div>
-            <div>
+    
                 <div class="row">
                 <div class="col">
                 <div class="card">
-                    <div class="card-header">
-                        <h2 class="page-title">Your Booking Was Successful!</h2>
-                        {{customer.username}}
-                      <h3>You are booked for:{{style}}<br></h3>
-                      <h4>On: {{appointment.appointment_date}} at: {{appointment.appointment_time}}</h4>
+                     <h2 class="page-title bg-light">{{customer.username}} My Bookings!</h2>
+                     <ul class='list-group'>
+                        {{#each appointment}}
+                             <li class='list-group-item'>
+                                 <div class="card-header">
+                                    <h5 class="font-weight-bold">{{service.style}}<br></h5>
+                                 </div>
+                                
+                                 <p>On: {{format_date appointment_date}} at: {{appointment_time}}<br>
+                                 Description of Service: {{service.description}}<br>
+                                 Price: ${{service.price}}
+                                 </p>
+                             </li>
+                         </ul>
+                    {{/each}}
                     </div>
-                    <div class="card-body">
-                        <div class="calendar" id="calendar">
-                            <img src="/images/calendar.png">
-                        </div>
-                        <h5>Description of Service: {{service.description}}</h5>
-                        <h5>Price: {{service.price}}</h5>
-                        <h5>Your stylist will be: 
-                        </h5>
-                    </div> 
+                    
                     <div class="card-footer">
                         <p class="text-center">Thank you for booking with The Cutting Edge</p>
-                    </div>  
+                    </div> 
                 </div>
                 <div> 
                 </div>

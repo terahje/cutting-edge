@@ -1,20 +1,16 @@
 async function appointmentFormHandler(event) {
     event.preventDefault();
-    
-//     <!-- bring in user from session id and the style from the book button get request -->
-//     <!-- Appointment -->
-//    <!-- attributes: ['id', 'customer_id','appointment_date', 'appointment_time' , 'stylist_id'], -->
-
+  
 const appointment_date = document.querySelector('input[name="date-book"]').value;
 const appointment_date_end = document.querySelector('input[name="date-book-end"]').value;
 const appointment_time = document.querySelector('input[name="time-book"]').value;
 const appointment_time_end = document.querySelector('input[name="time-book-end').value; 
-// customer id
-// const customer_id = window.location.toString().split('/')[
-//     window.location.toString().split('/').length -1
-// ];
-
-//service id
+const customer = document.querySelector('input[name="customer_id').value; 
+let customer_id = Number(customer);
+// const customer_id = Number(customer);
+console.log(customer_id);
+console.log(typeof customer_id);
+// console.log(customer_id);
 const service_id = window.location.toString().split('/')[
     window.location.toString().split('/').length -1
 ];
@@ -34,14 +30,12 @@ const response = await fetch(`/api/appointment/` , {
     }
 });
 
-if(response.ok) {
-    document.location.replace('/dashboard/:id');
+if(response.ok) { 
+    document.location.replace('/dashboard/'+customer_id);
 } else {
     alert(response.statusText);
 }
-// console.log(id);
-// console.log(appointment_date);
-// console.log(appointment_time);
+
 }
 
 document.querySelector('.book-appt-form').addEventListener("submit", appointmentFormHandler);
