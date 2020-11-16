@@ -1,7 +1,7 @@
 
-        <h2 class="page-title"> Choose Your Style! Book Your Appointment!  <button id='logout' class='btn btn-primary float-right'>logout</button></h2>         
+       <h2 class="page-title"> Choose Your Style! Book Your Appointment!   <button id='logout' class='btn float-right logout'>logout</button> <button id='book' class='btn float-right'><a href="/dashboard/{{customer}}">My Bookings</a></button></h2>
         <div class="card-deck">
-         
+            <p id="customer"></p>
             <div class="card">
                 {{#each services}}
                 <div class="row border border-light">
@@ -28,4 +28,5 @@
        
         </div> <!--end card-deck -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+   
    
