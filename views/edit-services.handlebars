@@ -1,4 +1,4 @@
-        <h2 class="page-title">Add New Service  <button id='logout-stylist' class='btn btn-primary float-right'>logout admin</button></h2>
+        <h2 class="page-title">Add New Service  <button id='logout-stylist' class='btn logout float-right'>logout admin</button></h2>
        
         <form class="new-service-form">
             <div>
@@ -7,6 +7,7 @@
                 <div>
                     <label for="style">style name:</label>
                     <input name="style-new" type="text" id="style-new" class="form-control" value="{{service.style}}"/>
+                     
                 </div>
                 <div>
                     <label for="category">category: {{service.category}}</label>
@@ -57,7 +58,8 @@
                 <div class="row border border-light">
                     <div class="col-3 d-flex justify-content-center align-middle">
                         <figure class="figure">
-                            <img class="img-thumbnail " style="max-width:100px; max-height:100px" src="/images/{{service.category}}.jpg">       
+                            <img class="img-thumbnail " style="max-width:100px; max-height:100px" src="/images/{{service.category}}.jpg">  
+                             {{service.appointment.customer.id}}  
                         <figcaption class="figure-caption">
                             Category: {{service.category}}
                         </figcaption>
