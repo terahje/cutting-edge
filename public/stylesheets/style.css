@@ -82,6 +82,16 @@ h5 a {
 h5 a:hover{
     color: var(--tertiary);
 }
+
+.logout {
+    background-color: var(--primary);
+    color: var(--lightgray); 
+}
+
+.logout:hover{
+    color: var(--lightgray);
+    text-decoration: underline;
+}
 .page-title {
     color: var(--tertiary);
     font-size:2em;
